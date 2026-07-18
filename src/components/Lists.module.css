@@ -1,0 +1,8 @@
+.rvds-bulleted-list, .rvds-numbered-list { margin-block: var(--rvds-list-flow-space); max-inline-size: var(--rvds-article-measure); padding-inline-start: var(--rvds-list-indent); }
+.rvds-bulleted-list { list-style: none; }
+.rvds-bulleted-list > li { position: relative; }
+.rvds-bulleted-list > li::before { background: var(--rvds-color-accent); block-size: 0.125rem; content: ''; inline-size: 0.65rem; inset-block-start: 0.75em; inset-inline-start: calc(-1 * var(--rvds-list-marker-width)); position: absolute; }
+.rvds-numbered-list { list-style: decimal; }
+.rvds-bulleted-list > li + li, .rvds-numbered-list > li + li { margin-block-start: var(--rvds-list-item-space); }
+.rvds-bulleted-list .rvds-bulleted-list, .rvds-bulleted-list .rvds-numbered-list, .rvds-numbered-list .rvds-bulleted-list, .rvds-numbered-list .rvds-numbered-list { margin-block: var(--rvds-list-nested-space); }
+.rvds-numbered-list > li::marker { color: var(--rvds-color-accent); font-variant-numeric: tabular-nums; }

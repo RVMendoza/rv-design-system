@@ -6,7 +6,7 @@
 - Added strict React and TypeScript package configuration using pnpm and Vite.
 - Added primitive and semantic color, typography, spacing, layout, radius, shadow, focus, motion, and z-index tokens.
 - Added global typography, focus, box-sizing, and reduced-motion foundations.
-- Added generic `Button`, `Link`, `Container`, `Stack`, `Cluster`, `Card`, `SkipLink`, `FormField`, and `TextInput` components with documented props.
+- Added generic actions and layout primitives plus a focused blog-content system for typography, mixed lists, media, and privacy-first embeds.
 - Added Storybook foundations and component stories covering variants, disabled/loading/error states, long content, layout, and keyboard skip navigation.
 - Added Testing Library keyboard and accessible-description tests.
 - Added Storybook axe configuration, accessibility and content documentation, Changesets, CI, contribution guidance, and a temporary all-rights-reserved notice.

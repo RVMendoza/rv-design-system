@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Button } from '../components/Button';
+import { Cluster } from '../components/Layout';
+import { Link } from '../components/Link';
+const meta = { title: 'Components/Actions', component: Button } satisfies Meta<typeof Button>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Buttons: Story = { args: { children: 'Start a project' }, render: () => <Cluster><Button>Start a project</Button><Button variant="secondary">Read the story</Button><Button variant="quiet">Maybe later</Button><Button disabled>Unavailable</Button><Button loading>Sending</Button></Cluster> };
+export const Links: Story = { args: { children: 'Link' }, render: () => <Cluster><Link href="#example">Text link</Link><Link href="#example" variant="primary">Primary link</Link><Link href="#example" variant="secondary">Secondary link</Link></Cluster> };
+export const LongLabel: Story = { args: { children: 'Long label' }, render: () => <Button>This label is intentionally long to demonstrate wrapping without clipping at narrow widths</Button> };

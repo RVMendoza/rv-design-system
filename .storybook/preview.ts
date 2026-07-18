@@ -6,7 +6,7 @@ const preview: Preview = {
     a11y: { test: 'error' },
     controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },
     layout: 'padded',
-    options: { storySort: { order: ['Foundations', 'Components', 'Patterns', 'Accessibility', 'Examples'] } },
+    options: { storySort: { order: ['Foundations', 'Blog', 'Components', 'Examples'] } },
   },
 };
 export default preview;

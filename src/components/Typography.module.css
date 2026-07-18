@@ -1,0 +1,20 @@
+.rvds-paragraph { margin-block: 0 var(--rvds-content-flow-space); max-inline-size: var(--rvds-article-measure); }
+.rvds-paragraph--small { color: var(--rvds-color-text-muted); font-size: var(--rvds-font-size-sm); line-height: var(--rvds-line-height-body); }
+.rvds-paragraph--body { font-size: var(--rvds-font-size-md); line-height: var(--rvds-line-height-body); }
+.rvds-paragraph--lead { font-size: var(--rvds-font-size-lead); line-height: var(--rvds-line-height-lead); }
+.rvds-heading { color: var(--rvds-color-text); font-family: var(--rvds-font-family-display); font-weight: var(--rvds-font-weight-bold); letter-spacing: var(--rvds-letter-spacing-tight); margin-block: var(--rvds-heading-space-before) var(--rvds-heading-space-after); max-inline-size: var(--rvds-article-measure); text-wrap: balance; }
+.rvds-heading--1 { font-size: var(--rvds-heading-size-1); line-height: 1.02; }
+.rvds-heading--2 { font-size: var(--rvds-heading-size-2); line-height: 1.08; }
+.rvds-heading--3 { font-size: var(--rvds-heading-size-3); line-height: 1.12; }
+.rvds-heading--4 { font-size: var(--rvds-heading-size-4); line-height: 1.2; }
+.rvds-heading--5 { font-size: var(--rvds-heading-size-5); line-height: 1.25; }
+.rvds-heading--6 { font-size: var(--rvds-heading-size-6); line-height: 1.3; }
+.rvds-quote { border-inline-start: var(--rvds-quote-border-width) solid var(--rvds-color-accent); margin: var(--rvds-space-6) 0; max-inline-size: var(--rvds-article-measure); padding-inline-start: var(--rvds-space-5); }
+.rvds-quote__body { font-size: var(--rvds-font-size-lead); font-style: italic; margin: 0; }
+.rvds-quote__attribution { color: var(--rvds-color-text-muted); font-size: var(--rvds-font-size-sm); margin-block-start: var(--rvds-space-3); }
+.rvds-code-block { margin: var(--rvds-space-6) 0; max-inline-size: 100%; }
+.rvds-code-block__caption { color: var(--rvds-color-text-muted); font-size: var(--rvds-font-size-sm); margin-block-end: var(--rvds-space-2); }
+.rvds-code-block__pre { background: var(--rvds-color-surface); border: var(--rvds-border-width) solid var(--rvds-color-border); border-radius: var(--rvds-radius-md); margin: 0; max-inline-size: 100%; overflow-x: auto; padding: var(--rvds-space-4); }
+.rvds-code-block__code { font-family: var(--rvds-font-family-code); font-size: var(--rvds-font-size-sm); white-space: pre; }
+.rvds-code-block--wrap .rvds-code-block__code { overflow-wrap: anywhere; white-space: pre-wrap; }
+.rvds-divider { border: 0; border-block-start: var(--rvds-border-width) solid var(--rvds-color-border); margin-block: var(--rvds-space-7); }

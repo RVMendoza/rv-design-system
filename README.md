@@ -6,7 +6,11 @@ Status: Milestone 2 foundation. The package is not published to npm.
 
 ## Public CSS contract
 
-Rendered classes are stable, namespaced BEM hooks such as `rvds-button`, `rvds-button--primary`, `rvds-link`, and `rvds-form-field__label`. Every custom property begins with `--rvds-`, for example `--rvds-color-action` and `--rvds-space-4`. Unprefixed tokens are not supported.
+Rendered classes are stable, namespaced BEM hooks such as `rvds-button`, `rvds-button--primary`, `rvds-paragraph`, and `rvds-quote__attribution`. Every custom property begins with `--rvds-`, for example `--rvds-color-action` and `--rvds-space-4`. Unprefixed tokens are not supported.
+
+## Blog components
+
+The package includes long-form `Paragraph`, `Heading`, `Quote`, `CodeBlock`, and `Divider` primitives; mixed `BulletedList` and `NumberedList` compositions; responsive `Image`, `Gallery`, and `VideoEmbed` media; and privacy-first `YouTubeEmbed`, `InstagramEmbed`, `TikTokEmbed`, and `GenericEmbed` previews. YouTube loads only after reader activation. Other provider previews never inject third-party scripts.
 
 ## Requirements
 

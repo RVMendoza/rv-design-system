@@ -1,7 +1,0 @@
-.rvds-form-field { display: grid; gap: var(--rvds-space-2); }
-.rvds-form-field__label { font-weight: var(--rvds-font-weight-medium); }
-.rvds-form-field__hint { color: var(--rvds-color-text-muted); font-size: var(--rvds-font-size-sm); }
-.rvds-form-field__error { color: var(--rvds-color-error); font-size: var(--rvds-font-size-sm); font-weight: var(--rvds-font-weight-medium); }
-.rvds-text-input { background: var(--rvds-color-surface); border: 2px solid var(--rvds-color-border); border-radius: var(--rvds-radius-sm); color: var(--rvds-color-text); font: inherit; min-block-size: 2.75rem; padding: var(--rvds-space-3); inline-size: 100%; }
-.rvds-text-input[aria-invalid='true'] { border-color: var(--rvds-color-error); }
-.rvds-text-input:disabled { background: var(--rvds-color-disabled); border-color: var(--rvds-color-disabled); color: var(--rvds-color-disabled-text); cursor: not-allowed; }
