@@ -22,6 +22,13 @@ for (const className of requiredClasses) {
   }
 }
 
+if (!css.includes('body{background:var(--rvds-color-background)')) {
+  throw new Error('Compiled CSS is missing the RVDS global dark canvas.');
+}
+if (!css.includes('font-family:var(--rvds-font-family-body)')) {
+  throw new Error('Compiled CSS is missing RVDS global body typography.');
+}
+
 for (const exportName of ['YoutubeEmbed', 'YoutubeEmbedProps', 'TiktokEmbed']) {
   if (!declarations.includes(exportName)) throw new Error(`Declarations are missing renamed export: ${exportName}`);
 }

@@ -1,4 +1,4 @@
-import './tokens/tokens.css';
+import './styles/global.css';
 export { Button, type ButtonProps } from './components/Button';
 export { Link, type LinkProps } from './components/Link';
 export { Container, Stack, Cluster, type ContainerProps, type StackProps, type ClusterProps } from './components/Layout';
