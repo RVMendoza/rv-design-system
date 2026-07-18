@@ -2,6 +2,7 @@
 .rvds-button:active:not(:disabled) { transform: translateY(1px); }
 .rvds-button--primary { background: var(--rvds-color-action); color: var(--rvds-color-action-text); }
 .rvds-button--primary:hover:not(:disabled) { background: var(--rvds-color-action-hover); }
+a.rvds-button--primary:hover { background: var(--rvds-color-background); border-color: var(--rvds-color-action); color: var(--rvds-color-action); text-decoration: underline; text-underline-offset: 0.18em; }
 .rvds-button--secondary { background: transparent; border-color: currentColor; color: var(--rvds-color-text); }
 .rvds-button--secondary:hover:not(:disabled) { background: var(--rvds-color-surface-muted); }
 .rvds-button--quiet { background: transparent; color: var(--rvds-color-link); padding-inline: var(--rvds-space-3); }

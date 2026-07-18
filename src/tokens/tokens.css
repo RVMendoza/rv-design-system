@@ -79,6 +79,7 @@
   --rvds-gallery-gap: var(--rvds-space-4);
   --rvds-media-aspect-ratio: 16 / 9;
   --rvds-radius-sm: 0.25rem;
+  --rvds-radius-xs: 0.125rem;
   --rvds-radius-md: 0.65rem;
   --rvds-radius-pill: 999px;
   --rvds-border-width: 1px;

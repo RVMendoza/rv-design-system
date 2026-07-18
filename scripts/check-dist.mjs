@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 
 const css = readFileSync(new URL('../dist/styles.css', import.meta.url), 'utf8');
 const javascript = readFileSync(new URL('../dist/index.js', import.meta.url), 'utf8');
+const declarations = readFileSync(new URL('../dist/index.d.ts', import.meta.url), 'utf8');
 
 for (const match of css.matchAll(/(?:^|[;{])(--[a-z][a-z0-9-]*):/g)) {
   const property = match[1];
@@ -19,6 +20,13 @@ for (const className of requiredClasses) {
   if (!css.includes(`.${className}`) || !javascript.includes(className)) {
     throw new Error(`Compiled output is missing stable public class: ${className}`);
   }
+}
+
+for (const exportName of ['YoutubeEmbed', 'YoutubeEmbedProps', 'TiktokEmbed']) {
+  if (!declarations.includes(exportName)) throw new Error(`Declarations are missing renamed export: ${exportName}`);
+}
+for (const removedName of ['YouTubeEmbed', 'YouTubeEmbedProps', 'TikTokEmbed']) {
+  if (declarations.includes(removedName)) throw new Error(`Declarations contain removed export: ${removedName}`);
 }
 
 console.log(`Distribution checks passed (${requiredClasses.length} public class blocks).`);

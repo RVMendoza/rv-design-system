@@ -7,4 +7,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Buttons: Story = { args: { children: 'Start a project' }, render: () => <Cluster><Button>Start a project</Button><Button variant="secondary">Read the story</Button><Button variant="quiet">Maybe later</Button><Button disabled>Unavailable</Button><Button loading>Sending</Button></Cluster> };
 export const Links: Story = { args: { children: 'Link' }, render: () => <Cluster><Link href="#example">Text link</Link><Link href="#example" variant="primary">Primary link</Link><Link href="#example" variant="secondary">Secondary link</Link></Cluster> };
+export const PrimaryLinkButtonStates: Story = {
+  args: { children: 'Primary link button' },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Hover for the inverse gold-on-black treatment, Tab to inspect focus-visible, and press to inspect the active state.',
+      },
+    },
+  },
+  render: () => <Link href="#primary-link-example" variant="primary">Primary link button</Link>,
+};
 export const LongLabel: Story = { args: { children: 'Long label' }, render: () => <Button>This label is intentionally long to demonstrate wrapping without clipping at narrow widths</Button> };

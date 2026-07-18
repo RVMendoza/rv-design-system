@@ -7,4 +7,4 @@ export { SkipLink, type SkipLinkProps } from './components/SkipLink';
 export { Paragraph, Heading, Quote, CodeBlock, Divider, type ParagraphProps, type HeadingProps, type QuoteProps, type CodeBlockProps, type DividerProps } from './components/Typography';
 export { BulletedList, NumberedList, type BulletedListProps, type NumberedListProps } from './components/Lists';
 export { Image, Gallery, VideoEmbed, type ImageProps, type GalleryItem, type GalleryProps, type VideoTrack, type VideoEmbedProps } from './components/Media';
-export { GenericEmbed, InstagramEmbed, TikTokEmbed, YouTubeEmbed, type GenericEmbedProps, type ProviderEmbedProps, type YouTubeEmbedProps } from './components/Embeds';
+export { GenericEmbed, InstagramEmbed, TiktokEmbed, YoutubeEmbed, type GenericEmbedProps, type ProviderEmbedProps, type YoutubeEmbedProps } from './components/Embeds';

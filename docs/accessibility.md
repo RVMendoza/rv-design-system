@@ -22,7 +22,7 @@ Repository-wide implementation rules for humans and AI agents live in [`AGENTS.m
 - `Button`: Tab focuses; Enter or Space activates; disabled/loading states cannot activate.
 - `Link`: Tab focuses; Enter follows the destination.
 - `SkipLink`: first focusable element; becomes visible on focus and moves focus toward main content.
-- `YouTubeEmbed`: Tab focuses the consent button; Enter or Space loads the privacy-enhanced player; no YouTube request occurs before activation.
+- `YoutubeEmbed`: the privacy-enhanced iframe loads lazily near the viewport; its required title identifies the player, and native Youtube controls provide keyboard interaction.
 - `BulletedList` and `NumberedList`: native list semantics are preserved through arbitrary mixed nesting; dash markers are decorative CSS.
 - `Image`, `Gallery`, and `VideoEmbed`: alternative text, labels, captions, and caption tracks remain the content author's responsibility and are exposed through required or documented props.
 

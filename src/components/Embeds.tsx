@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import styles from './Embeds.module.css';
 
 export interface GenericEmbedProps {
@@ -32,30 +32,23 @@ export function GenericEmbed({ url, title, description, provider, thumbnail, thu
 
 export type ProviderEmbedProps = Omit<GenericEmbedProps, 'provider'>;
 export function InstagramEmbed(props: ProviderEmbedProps) { return <GenericEmbed provider="Instagram" {...props} />; }
-export function TikTokEmbed(props: ProviderEmbedProps) { return <GenericEmbed provider="TikTok" {...props} />; }
+export function TiktokEmbed(props: ProviderEmbedProps) { return <GenericEmbed provider="Tiktok" {...props} />; }
 
-export interface YouTubeEmbedProps {
+export interface YoutubeEmbedProps {
   videoId: string;
   title: string;
-  poster?: string;
-  posterAlt?: string;
   caption?: ReactNode;
   startAt?: number;
   className?: string;
 }
 
-export function YouTubeEmbed({ videoId, title, poster, posterAlt = '', caption, startAt = 0, className = '' }: YouTubeEmbedProps) {
-  const [active, setActive] = useState(false);
-  if (!/^[A-Za-z0-9_-]{11}$/.test(videoId)) throw new TypeError('YouTube videoId must be an 11-character video identifier.');
+export function YoutubeEmbed({ videoId, title, caption, startAt = 0, className = '' }: YoutubeEmbedProps) {
+  if (!/^[A-Za-z0-9_-]{11}$/.test(videoId)) throw new TypeError('Youtube videoId must be an 11-character video identifier.');
   const safeStart = Number.isFinite(startAt) && startAt > 0 ? Math.floor(startAt) : 0;
-  const source = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1${safeStart > 0 ? `&start=${safeStart}` : ''}`;
+  const source = `https://www.youtube-nocookie.com/embed/${videoId}${safeStart > 0 ? `?start=${safeStart}` : ''}`;
   return <figure className={[styles['rvds-youtube-embed'], className].filter(Boolean).join(' ')}>
     <div className={styles['rvds-youtube-embed__frame']}>
-      {active ? <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className={styles['rvds-youtube-embed__iframe']} referrerPolicy="strict-origin-when-cross-origin" src={source} title={title} /> : <button className={styles['rvds-youtube-embed__consent']} onClick={() => setActive(true)} type="button">
-        {poster && <img alt={posterAlt} className={styles['rvds-youtube-embed__poster']} src={poster} />}
-        <span className={styles['rvds-youtube-embed__action']}>Play video</span>
-        <span className={styles['rvds-youtube-embed__notice']}>Loads YouTube after activation</span>
-      </button>}
+      <iframe allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className={styles['rvds-youtube-embed__iframe']} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" src={source} title={title} />
     </div>
     {caption && <figcaption className={styles['rvds-youtube-embed__caption']}>{caption}</figcaption>}
   </figure>;

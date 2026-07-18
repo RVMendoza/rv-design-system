@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { GenericEmbed, YouTubeEmbed } from '../components/Embeds';
+import { GenericEmbed, YoutubeEmbed } from '../components/Embeds';
 import { BulletedList, NumberedList } from '../components/Lists';
 import { Container, Stack } from '../components/Layout';
 import { CodeBlock, Divider, Heading, Paragraph, Quote } from '../components/Typography';
@@ -12,7 +12,7 @@ function ArticleExample() { return <Container reading><article><Stack>
   <Heading level={2}>A tiny technical aside</Heading><CodeBlock code={'const details = observations.filter(Boolean);'} language="typescript" />
   <Divider />
   <GenericEmbed description="A script-free related reading preview." provider="Publication" title="Read a related article" url="https://example.com/article" />
-  <YouTubeEmbed caption="No YouTube request occurs until the play control is activated." title="Related video" videoId="dQw4w9WgXcQ" />
+  <YoutubeEmbed caption="A privacy-enhanced Youtube player that loads lazily near the viewport." title="Beyoncé – All Night" videoId="gM89Q5Eng_M" />
 </Stack></article></Container>; }
 const meta = { title: 'Examples/Article', component: ArticleExample, parameters: { layout: 'padded' } } satisfies Meta<typeof ArticleExample>;
 export default meta;

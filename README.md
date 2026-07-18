@@ -10,7 +10,7 @@ Rendered classes are stable, namespaced BEM hooks such as `rvds-button`, `rvds-b
 
 ## Blog components
 
-The package includes long-form `Paragraph`, `Heading`, `Quote`, `CodeBlock`, and `Divider` primitives; mixed `BulletedList` and `NumberedList` compositions; responsive `Image`, `Gallery`, and `VideoEmbed` media; and privacy-first `YouTubeEmbed`, `InstagramEmbed`, `TikTokEmbed`, and `GenericEmbed` previews. YouTube loads only after reader activation. Other provider previews never inject third-party scripts.
+The package includes long-form `Paragraph`, `Heading`, `Quote`, `CodeBlock`, and `Divider` primitives; mixed `BulletedList` and `NumberedList` compositions; responsive `Image`, `Gallery`, and `VideoEmbed` media; and `YoutubeEmbed`, `InstagramEmbed`, `TiktokEmbed`, and `GenericEmbed` previews. Youtube uses its privacy-enhanced host and loads the native player lazily when it nears the viewport. Other provider previews never inject third-party scripts or iframes.
 
 ## Requirements
 

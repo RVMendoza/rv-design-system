@@ -14,7 +14,7 @@
 .rvds-quote__attribution { color: var(--rvds-color-text-muted); font-size: var(--rvds-font-size-sm); margin-block-start: var(--rvds-space-3); }
 .rvds-code-block { margin: var(--rvds-space-6) 0; max-inline-size: 100%; }
 .rvds-code-block__caption { color: var(--rvds-color-text-muted); font-size: var(--rvds-font-size-sm); margin-block-end: var(--rvds-space-2); }
-.rvds-code-block__pre { background: var(--rvds-color-surface); border: var(--rvds-border-width) solid var(--rvds-color-border); border-radius: var(--rvds-radius-md); margin: 0; max-inline-size: 100%; overflow-x: auto; padding: var(--rvds-space-4); }
+.rvds-code-block__pre { background: var(--rvds-color-surface); border: var(--rvds-border-width) solid var(--rvds-color-border); border-radius: var(--rvds-radius-xs); margin: 0; max-inline-size: 100%; overflow-x: auto; padding: var(--rvds-space-4); }
 .rvds-code-block__code { font-family: var(--rvds-font-family-code); font-size: var(--rvds-font-size-sm); white-space: pre; }
 .rvds-code-block--wrap .rvds-code-block__code { overflow-wrap: anywhere; white-space: pre-wrap; }
 .rvds-divider { border: 0; border-block-start: var(--rvds-border-width) solid var(--rvds-color-border); margin-block: var(--rvds-space-7); }
