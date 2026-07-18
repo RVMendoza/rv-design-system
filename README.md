@@ -12,6 +12,8 @@ Rendered classes are stable, namespaced BEM hooks such as `rvds-button`, `rvds-b
 
 The package includes long-form `Paragraph`, `Heading`, `Quote`, `CodeBlock`, and `Divider` primitives; mixed `BulletedList` and `NumberedList` compositions; responsive `Image`, `Gallery`, and `VideoEmbed` media; and `YoutubeEmbed`, `InstagramEmbed`, `TiktokEmbed`, and `GenericEmbed` previews. Youtube uses its privacy-enhanced host and loads the native player lazily when it nears the viewport. Other provider previews never inject third-party scripts or iframes.
 
+For an Astro Content Collections example, see the [Astro MDX usage guide](docs/astro-mdx-usage.md). Markdown parsing, generated-prose styling, and component mapping belong to the consuming website; this package supplies the components and CSS contract.
+
 ## Requirements
 
 - Node.js 22 or newer supported LTS
