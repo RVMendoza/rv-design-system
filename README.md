@@ -17,7 +17,7 @@ For an Astro Content Collections example, see the [Astro MDX usage guide](docs/a
 ## Requirements
 
 - Node.js 22 or newer supported LTS
-- pnpm 10
+- pnpm 11.9.0
 
 ## Development
 
@@ -26,6 +26,8 @@ pnpm install
 pnpm storybook
 pnpm check
 ```
+
+Storybook runs at [http://localhost:6006](http://localhost:6006). Stop it with `Control+C`. Rebuild the package with `pnpm build` whenever the consuming Astro website needs new RVDS source changes.
 
 ## Fonts
 
