@@ -15,4 +15,8 @@ describe('Button', () => {
     expect(screen.getByRole('button')).toBeDisabled();
     expect(screen.getByRole('button')).toHaveAttribute('aria-busy', 'true');
   });
+  it('exposes stable RVDS BEM classes', () => {
+    render(<Button variant="secondary" fullWidth>Continue</Button>);
+    expect(screen.getByRole('button')).toHaveClass('rvds-button', 'rvds-button--secondary', 'rvds-button--full-width');
+  });
 });

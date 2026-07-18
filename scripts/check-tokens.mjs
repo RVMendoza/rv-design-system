@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 
 const css = readFileSync(new URL('../src/tokens/tokens.css', import.meta.url), 'utf8');
 const banned = ['cream', 'coral', 'Georgia', 'Times New Roman', '--rv-color-blue'];
@@ -6,9 +6,27 @@ for (const term of banned) {
   if (css.includes(term)) throw new Error(`Removed visual-system token reintroduced: ${term}`);
 }
 
-const required = ['--color-action', '--color-action-hover', '--color-action-text', '--color-link', '--color-focus'];
+const required = ['--rvds-color-action', '--rvds-color-action-hover', '--rvds-color-action-text', '--rvds-color-link', '--rvds-color-focus'];
 for (const token of required) {
   if (!css.includes(`${token}:`)) throw new Error(`Required semantic token missing: ${token}`);
+}
+
+const sourceRoot = new URL('../src/', import.meta.url);
+const cssFiles = readdirSync(sourceRoot, { recursive: true })
+  .filter((path) => path.endsWith('.css'))
+  .map((path) => ({ path, contents: readFileSync(new URL(path, sourceRoot), 'utf8') }));
+
+for (const { path, contents } of cssFiles) {
+  for (const match of contents.matchAll(/^\s*(--[a-z][a-z0-9-]*)\s*:/gm)) {
+    if (!match[1].startsWith('--rvds-')) throw new Error(`Unnamespaced custom property in ${path}: ${match[1]}`);
+  }
+  if (path.endsWith('.module.css')) {
+    for (const match of contents.matchAll(/\.([a-z][a-z0-9_-]*)/g)) {
+      const className = match[1];
+      const bem = /^rvds-[a-z0-9]+(?:-[a-z0-9]+)*(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?$/;
+      if (!bem.test(className)) throw new Error(`Invalid RVDS BEM class in ${path}: ${className}`);
+    }
+  }
 }
 
 function luminance(hex) {

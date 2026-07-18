@@ -4,6 +4,10 @@ Reusable, accessible React primitives for RV Mendoza projects. This public portf
 
 Status: Milestone 2 foundation. The package is not published to npm.
 
+## Public CSS contract
+
+Rendered classes are stable, namespaced BEM hooks such as `rvds-button`, `rvds-button--primary`, `rvds-link`, and `rvds-form-field__label`. Every custom property begins with `--rvds-`, for example `--rvds-color-action` and `--rvds-space-4`. Unprefixed tokens are not supported.
+
 ## Requirements
 
 - Node.js 22 or newer supported LTS
@@ -39,7 +43,7 @@ Components use native semantics, visible focus, reduced-motion handling, and doc
 
 ## Versioning and contributions
 
-Use Changesets for user-facing changes. Keep components generic, document props and meaningful states, add stories and tests, and run `pnpm check` before review.
+Use Changesets for user-facing changes. Keep components generic, document props and meaningful states, add stories and tests, and run `pnpm check` before review. Humans and AI agents must follow [`AGENTS.md`](AGENTS.md).
 
 ## License
 

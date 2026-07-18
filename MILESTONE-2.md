@@ -10,6 +10,8 @@
 - Added Storybook foundations and component stories covering variants, disabled/loading/error states, long content, layout, and keyboard skip navigation.
 - Added Testing Library keyboard and accessible-description tests.
 - Added Storybook axe configuration, accessibility and content documentation, Changesets, CI, contribution guidance, and a temporary all-rights-reserved notice.
+- Namespaced the public CSS contract with stable `rvds` BEM classes and `--rvds-*` custom properties.
+- Added canonical repository instructions for AI agents in `AGENTS.md`.
 
 ## Local setup and preview
 
@@ -33,6 +35,7 @@ The foundation is minimal and dark: a nearly black canvas, ghost-white Inter typ
 - Package build is 3.78 kB JavaScript / 4.45 kB CSS before gzip; React remains a peer dependency.
 - Storybook production build passes. Its documentation/axe bundles are intentionally much larger than the shipped package and are not delivered to the website.
 - Static token checks reject the removed cream, coral, blue, and serif foundations and validate seven WCAG contrast pairs.
+- Source and distribution checks reject unnamespaced tokens, invalid BEM selectors, and hashed public class names.
 - Inter is loaded from Google Fonts only by Storybook. The package itself makes no external font request and retains a system-sans fallback stack.
 
 ## Known issues

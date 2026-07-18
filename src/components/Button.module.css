@@ -1,10 +1,12 @@
-.button { align-items: center; border: 2px solid transparent; border-radius: var(--radius-pill); cursor: pointer; display: inline-flex; font: inherit; font-weight: var(--font-weight-medium); gap: var(--space-2); justify-content: center; min-block-size: 2.75rem; padding: var(--space-2) var(--space-5); text-decoration: none; transition: background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard); }
-.button:active:not(:disabled) { transform: translateY(1px); }
-.primary { background: var(--color-action); color: var(--color-action-text); }
-.primary:hover:not(:disabled) { background: var(--color-action-hover); }
-.secondary { background: transparent; border-color: currentColor; color: var(--color-text); }
-.secondary:hover:not(:disabled) { background: var(--color-surface-muted); }
-.quiet { background: transparent; color: var(--color-link); padding-inline: var(--space-3); }
-.quiet:hover:not(:disabled) { color: var(--color-text); text-decoration: underline; }
-.button:disabled, .loading { background: var(--color-disabled); border-color: var(--color-disabled); color: var(--color-disabled-text); cursor: not-allowed; }
-.fullWidth { inline-size: 100%; }
+.rvds-button { align-items: center; border: 2px solid transparent; border-radius: var(--rvds-radius-pill); cursor: pointer; display: inline-flex; font: inherit; font-weight: var(--rvds-font-weight-medium); gap: var(--rvds-space-2); justify-content: center; min-block-size: 2.75rem; padding: var(--rvds-space-2) var(--rvds-space-5); text-decoration: none; transition: background var(--rvds-motion-fast) var(--rvds-ease-standard), color var(--rvds-motion-fast) var(--rvds-ease-standard), transform var(--rvds-motion-fast) var(--rvds-ease-standard); }
+.rvds-button:active:not(:disabled) { transform: translateY(1px); }
+.rvds-button--primary { background: var(--rvds-color-action); color: var(--rvds-color-action-text); }
+.rvds-button--primary:hover:not(:disabled) { background: var(--rvds-color-action-hover); }
+.rvds-button--secondary { background: transparent; border-color: currentColor; color: var(--rvds-color-text); }
+.rvds-button--secondary:hover:not(:disabled) { background: var(--rvds-color-surface-muted); }
+.rvds-button--quiet { background: transparent; color: var(--rvds-color-link); padding-inline: var(--rvds-space-3); }
+.rvds-button--quiet:hover:not(:disabled) { color: var(--rvds-color-text); text-decoration: underline; }
+.rvds-button:disabled, .rvds-button--loading { background: var(--rvds-color-disabled); border-color: var(--rvds-color-disabled); color: var(--rvds-color-disabled-text); cursor: not-allowed; }
+.rvds-button--full-width { inline-size: 100%; }
+.rvds-link { color: var(--rvds-color-link); text-underline-offset: 0.18em; }
+.rvds-link:hover { color: var(--rvds-color-text); }

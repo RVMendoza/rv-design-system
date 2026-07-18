@@ -12,6 +12,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ variant = 'primary', loading = false, fullWidth = false, disabled, className = '', children, ...props }: ButtonProps) {
-  const classes = [styles.button, styles[variant], fullWidth ? styles.fullWidth : '', loading ? styles.loading : '', className].filter(Boolean).join(' ');
+  const classes = [styles['rvds-button'], styles[`rvds-button--${variant}`], fullWidth ? styles['rvds-button--full-width'] : '', loading ? styles['rvds-button--loading'] : '', className].filter(Boolean).join(' ');
   return <button className={classes} disabled={disabled || loading} aria-busy={loading || undefined} {...props}>{loading ? 'Loading…' : children}</button>;
 }

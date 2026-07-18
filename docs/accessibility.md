@@ -2,6 +2,8 @@
 
 The target is WCAG 2.2 AA. Automated checks are a floor, not proof of conformance.
 
+Repository-wide implementation rules for humans and AI agents live in [`AGENTS.md`](../AGENTS.md).
+
 ## Component expectations
 
 - Use native HTML behavior before ARIA.

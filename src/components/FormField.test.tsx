@@ -8,5 +8,9 @@ describe('TextInput', () => {
     const input = screen.getByRole('textbox', { name: 'Email' });
     expect(input).toHaveAccessibleDescription('Work email is fine. Enter an email.');
     expect(input).toHaveAttribute('aria-invalid', 'true');
+    expect(input).toHaveClass('rvds-text-input');
+    expect(input.closest('.rvds-form-field')).not.toBeNull();
+    expect(screen.getByText('Work email is fine.')).toHaveClass('rvds-form-field__hint');
+    expect(screen.getByText('Enter an email.')).toHaveClass('rvds-form-field__error');
   });
 });

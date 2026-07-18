@@ -1,4 +1,4 @@
-.container { inline-size: min(100% - 2rem, var(--layout-content)); margin-inline: auto; }
-.reading { max-inline-size: var(--layout-reading); }
-.stack { display: flex; flex-direction: column; gap: var(--stack-space, var(--space-5)); }
-.cluster { align-items: var(--cluster-align, center); display: flex; flex-wrap: wrap; gap: var(--cluster-space, var(--space-4)); justify-content: var(--cluster-justify, flex-start); }
+.rvds-container { inline-size: min(100% - 2rem, var(--rvds-layout-content)); margin-inline: auto; }
+.rvds-container--reading { max-inline-size: var(--rvds-layout-reading); }
+.rvds-stack { display: flex; flex-direction: column; gap: var(--rvds-stack-space, var(--rvds-space-5)); }
+.rvds-cluster { align-items: var(--rvds-cluster-align, center); display: flex; flex-wrap: wrap; gap: var(--rvds-cluster-space, var(--rvds-space-4)); justify-content: var(--rvds-cluster-justify, flex-start); }

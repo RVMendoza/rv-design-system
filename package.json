@@ -14,7 +14,7 @@
     "./tokens.css": "./dist/styles.css"
   },
   "scripts": {
-    "build": "vite build && tsc -p tsconfig.build.json",
+    "build": "vite build && tsc -p tsconfig.build.json && node scripts/check-dist.mjs",
     "build-storybook": "storybook build",
     "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm build-storybook",
     "lint": "eslint .",
