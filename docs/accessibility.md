@@ -12,6 +12,8 @@ The target is WCAG 2.2 AA. Automated checks are a floor, not proof of conformanc
 - Components must reflow at 320px and remain usable at 200% zoom.
 - Content examples include long labels and narrow containers.
 - Motion uses shared tokens and respects `prefers-reduced-motion`.
+- Sunflower-gold actions use black text, and verdigris links retain at least 4.5:1 contrast against the black canvas.
+- Muted copy uses an accessible derived token rather than raw dim grey, which is reserved for borders and non-text separation.
 
 ## Keyboard behavior
 

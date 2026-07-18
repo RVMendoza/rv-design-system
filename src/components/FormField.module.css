@@ -4,4 +4,4 @@
 .error { color: var(--color-error); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); }
 .input { background: var(--color-surface); border: 2px solid var(--color-border); border-radius: var(--radius-sm); color: var(--color-text); font: inherit; min-block-size: 2.75rem; padding: var(--space-3); inline-size: 100%; }
 .input[aria-invalid='true'] { border-color: var(--color-error); }
-.input:disabled { background: var(--rv-color-cream-100); cursor: not-allowed; opacity: 0.7; }
+.input:disabled { background: var(--color-disabled); border-color: var(--color-disabled); color: var(--color-disabled-text); cursor: not-allowed; }

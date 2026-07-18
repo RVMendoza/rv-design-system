@@ -22,7 +22,7 @@ Open `http://localhost:6006`. Run the complete verification suite with `pnpm che
 
 ## Visual description
 
-The foundation is warm and editorial: cream canvas, dark brown ink, restrained coral actions, blue links, serif display type, and system-sans body copy. Components use modest borders and radii instead of SaaS-style pills and card grids; the exception is action buttons, whose pill shape makes touch targets obvious. Typography and spacing carry most of the personality.
+The foundation is minimal and dark: a nearly black canvas, ghost-white Inter typography, restrained raised surfaces, verdigris links, and sunflower-gold actions. Flat color, spacing, and type hierarchy carry the interface; gradients are intentionally excluded. Dim grey is reserved for borders, while an accessible derived grey supports muted text.
 
 ## Accessibility and performance checks
 
@@ -32,6 +32,8 @@ The foundation is warm and editorial: cream canvas, dark brown ink, restrained c
 - Visible focus, reduced-motion tokens, native semantics, 44px control height, long-content examples, and 320px-friendly layouts are built in.
 - Package build is 3.78 kB JavaScript / 4.45 kB CSS before gzip; React remains a peer dependency.
 - Storybook production build passes. Its documentation/axe bundles are intentionally much larger than the shipped package and are not delivered to the website.
+- Static token checks reject the removed cream, coral, blue, and serif foundations and validate seven WCAG contrast pairs.
+- Inter is loaded from Google Fonts only by Storybook. The package itself makes no external font request and retains a system-sans fallback stack.
 
 ## Known issues
 
@@ -45,14 +47,14 @@ The foundation is warm and editorial: cream canvas, dark brown ink, restrained c
 ## Decisions requiring review
 
 1. Choose a public-source license or keep all rights reserved.
-2. Approve the visual foundation: cream, ink, coral, blue, serif display, and system-sans body.
+2. The visual foundation is approved as black, ghost white, sunflower gold, verdigris, dim grey, and Inter.
 3. Choose GitHub Pages or Cloudflare Pages for public Storybook hosting and provide/authorize the relevant authenticated repository workflow.
 4. Decide whether the package should remain Git-only initially or later publish to npm/GitHub Packages.
 5. Confirm the initial component boundary before adding more components in later milestones.
 
 ## Approval checklist
 
-- [ ] Approve tokens and visual direction.
+- [x] Approve tokens and visual direction.
 - [ ] Approve component APIs and accessibility conventions.
 - [ ] Decide licensing.
 - [ ] Authorize/configure public repository and Storybook hosting.

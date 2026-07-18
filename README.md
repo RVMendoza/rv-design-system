@@ -17,6 +17,18 @@ pnpm storybook
 pnpm check
 ```
 
+## Fonts
+
+The package defines Inter with system-sans fallbacks but does not load external resources. Consumers that choose Google Fonts should add these elements to the document head:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+```
+
+Without those links, the interface uses the documented system-sans fallback stack. Storybook loads the same stylesheet for accurate previews.
+
 ## Local website dependency
 
 Build the package, then consume it from a sibling private repository with `pnpm add ../rv-design-system` or `pnpm pack` plus the generated tarball. The package boundary must remain intact; do not copy shared source into the website.
