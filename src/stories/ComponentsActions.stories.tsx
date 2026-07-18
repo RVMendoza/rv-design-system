@@ -12,7 +12,7 @@ export const PrimaryLinkButtonStates: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Hover for the inverse gold-on-black treatment, Tab to inspect focus-visible, and press to inspect the active state.',
+        story: 'Hover for the inverse verdigris-on-black treatment, Tab to inspect the sunflower-gold focus ring, and press to inspect the active state.',
       },
     },
   },

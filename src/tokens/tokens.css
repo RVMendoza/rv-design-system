@@ -9,7 +9,7 @@
   --rvds-color-surface-raised: #0e0e10;
   --rvds-color-surface-muted-base: #19181b;
   --rvds-color-text-muted-base: #b8b5bd;
-  --rvds-color-sunflower-gold-hover: #ffd166;
+  --rvds-color-verdigris-hover: #32b8a8;
   --rvds-color-control-disabled: #3a383d;
   --rvds-color-control-disabled-text: #aaa7ae;
   --rvds-color-error-base: #ff929a;
@@ -20,11 +20,11 @@
   --rvds-color-surface: var(--rvds-color-surface-raised);
   --rvds-color-surface-muted: var(--rvds-color-surface-muted-base);
   --rvds-color-border: var(--rvds-color-dim-grey);
-  --rvds-color-action: var(--rvds-color-sunflower-gold);
-  --rvds-color-action-hover: var(--rvds-color-sunflower-gold-hover);
+  --rvds-color-action: var(--rvds-color-verdigris);
+  --rvds-color-action-hover: var(--rvds-color-verdigris-hover);
   --rvds-color-action-text: var(--rvds-color-black);
-  --rvds-color-accent: var(--rvds-color-action);
-  --rvds-color-link: var(--rvds-color-verdigris);
+  --rvds-color-accent: var(--rvds-color-sunflower-gold);
+  --rvds-color-link: var(--rvds-color-sunflower-gold);
   --rvds-color-focus: var(--rvds-color-sunflower-gold);
   --rvds-color-error: var(--rvds-color-error-base);
   --rvds-color-success: var(--rvds-color-verdigris);

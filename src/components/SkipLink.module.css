@@ -1,2 +1,2 @@
-.rvds-skip-link { background: var(--rvds-color-action); color: var(--rvds-color-action-text); inset-block-start: var(--rvds-space-2); inset-inline-start: var(--rvds-space-2); padding: var(--rvds-space-3) var(--rvds-space-4); position: fixed; transform: translateY(-200%); z-index: var(--rvds-z-dialog); }
+.rvds-skip-link { background: var(--rvds-color-action); color: var(--rvds-color-action-text); font-family: var(--rvds-font-family-body); inset-block-start: var(--rvds-space-2); inset-inline-start: var(--rvds-space-2); padding: var(--rvds-space-3) var(--rvds-space-4); position: fixed; transform: translateY(-200%); z-index: var(--rvds-z-dialog); }
 .rvds-skip-link:focus { transform: translateY(0); }

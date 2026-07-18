@@ -17,7 +17,7 @@ These rules apply to every file in this repository. Human instructions in the ac
 - Use CSS Modules, but expose stable public class names using BEM and the `rvds` namespace.
 - Blocks use `rvds-block`, elements use `rvds-block__element`, and modifiers use `rvds-block--modifier`. Do not emit unnamespaced or hashed public classes.
 - Every custom property must start with `--rvds-`. Do not add compatibility aliases without explicit approval.
-- Use semantic tokens in components rather than raw color values. Keep sunflower gold for actions/focus and verdigris for links or restrained informational states.
+- Use semantic tokens in components rather than raw color values. Keep sunflower gold for links, focus, and attention; use verdigris for actions and success.
 - Preserve the minimal dark Inter-based direction. Do not add gradients, glass effects, excessive rounding, or animation libraries without explicit approval.
 
 ## Components and tests

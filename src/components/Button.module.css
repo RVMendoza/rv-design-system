@@ -1,4 +1,4 @@
-.rvds-button { align-items: center; border: 2px solid transparent; border-radius: var(--rvds-radius-pill); cursor: pointer; display: inline-flex; font: inherit; font-weight: var(--rvds-font-weight-medium); gap: var(--rvds-space-2); justify-content: center; min-block-size: 2.75rem; padding: var(--rvds-space-2) var(--rvds-space-5); text-decoration: none; transition: background var(--rvds-motion-fast) var(--rvds-ease-standard), color var(--rvds-motion-fast) var(--rvds-ease-standard), transform var(--rvds-motion-fast) var(--rvds-ease-standard); }
+.rvds-button { align-items: center; border: 2px solid transparent; border-radius: var(--rvds-radius-pill); cursor: pointer; display: inline-flex; font-family: var(--rvds-font-family-body); font-size: var(--rvds-font-size-md); font-weight: var(--rvds-font-weight-medium); gap: var(--rvds-space-2); justify-content: center; line-height: var(--rvds-line-height-body); min-block-size: 2.75rem; padding: var(--rvds-space-2) var(--rvds-space-5); text-decoration: none; transition: background var(--rvds-motion-fast) var(--rvds-ease-standard), color var(--rvds-motion-fast) var(--rvds-ease-standard), transform var(--rvds-motion-fast) var(--rvds-ease-standard); }
 .rvds-button:active:not(:disabled) { transform: translateY(1px); }
 .rvds-button--primary { background: var(--rvds-color-action); color: var(--rvds-color-action-text); }
 .rvds-button--primary:hover:not(:disabled) { background: var(--rvds-color-action-hover); }
@@ -9,5 +9,5 @@ a.rvds-button--primary:hover { background: var(--rvds-color-background); border-
 .rvds-button--quiet:hover:not(:disabled) { color: var(--rvds-color-text); text-decoration: underline; }
 .rvds-button:disabled, .rvds-button--loading { background: var(--rvds-color-disabled); border-color: var(--rvds-color-disabled); color: var(--rvds-color-disabled-text); cursor: not-allowed; }
 .rvds-button--full-width { inline-size: 100%; }
-.rvds-link { color: var(--rvds-color-link); text-underline-offset: 0.18em; }
-.rvds-link:hover { color: var(--rvds-color-text); }
+.rvds-link { color: var(--rvds-color-link); font-family: var(--rvds-font-family-body); text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
+.rvds-link:hover { text-decoration-thickness: 0.16em; }

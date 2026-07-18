@@ -1,4 +1,4 @@
-.rvds-generic-embed { align-items: stretch; background: var(--rvds-color-surface); border: var(--rvds-border-width) solid var(--rvds-color-border); border-radius: var(--rvds-radius-md); color: var(--rvds-color-text); display: grid; gap: var(--rvds-space-4); grid-template-columns: minmax(0, 10rem) 1fr; max-inline-size: var(--rvds-article-measure); overflow: hidden; text-decoration: none; }
+.rvds-generic-embed { align-items: stretch; background: var(--rvds-color-surface); border: var(--rvds-border-width) solid var(--rvds-color-border); border-radius: var(--rvds-radius-md); color: var(--rvds-color-text); display: grid; font-family: var(--rvds-font-family-body); gap: var(--rvds-space-4); grid-template-columns: minmax(0, 10rem) 1fr; max-inline-size: var(--rvds-article-measure); overflow: hidden; text-decoration: none; }
 .rvds-generic-embed:hover { border-color: var(--rvds-color-link); color: var(--rvds-color-text); }
 .rvds-generic-embed__thumbnail { block-size: 100%; inline-size: 100%; object-fit: cover; }
 .rvds-generic-embed__content { align-self: center; display: grid; gap: var(--rvds-space-1); min-inline-size: 0; padding: var(--rvds-space-4); }
@@ -6,7 +6,7 @@
 .rvds-generic-embed__title { font-weight: var(--rvds-font-weight-bold); }
 .rvds-generic-embed__description, .rvds-generic-embed__url { color: var(--rvds-color-text-muted); font-size: var(--rvds-font-size-sm); }
 .rvds-generic-embed__url { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.rvds-youtube-embed { margin: var(--rvds-space-6) 0; max-inline-size: var(--rvds-article-measure); }
+.rvds-youtube-embed { font-family: var(--rvds-font-family-body); margin: var(--rvds-space-6) 0; max-inline-size: var(--rvds-article-measure); }
 .rvds-youtube-embed__frame { aspect-ratio: var(--rvds-media-aspect-ratio); background: var(--rvds-color-surface); position: relative; }
 .rvds-youtube-embed__iframe { block-size: 100%; border: 0; inline-size: 100%; }
 .rvds-youtube-embed__caption { color: var(--rvds-color-text-muted); font-size: var(--rvds-font-size-sm); margin-block-start: var(--rvds-space-2); }

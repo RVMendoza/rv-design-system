@@ -1,8 +1,8 @@
 .rvds-image, .rvds-video { block-size: auto; display: block; max-inline-size: 100%; }
 .rvds-image { inline-size: 100%; }
-.rvds-image-figure, .rvds-video-figure { margin: var(--rvds-space-6) 0; max-inline-size: 100%; }
+.rvds-image-figure, .rvds-video-figure { font-family: var(--rvds-font-family-body); margin: var(--rvds-space-6) 0; max-inline-size: 100%; }
 .rvds-image-figure__caption, .rvds-video-figure__caption { color: var(--rvds-color-text-muted); font-size: var(--rvds-font-size-sm); margin-block-start: var(--rvds-space-2); max-inline-size: var(--rvds-article-measure); }
-.rvds-gallery { display: grid; gap: var(--rvds-gallery-gap); list-style: none; margin: var(--rvds-space-6) 0; padding: 0; }
+.rvds-gallery { display: grid; font-family: var(--rvds-font-family-body); gap: var(--rvds-gallery-gap); list-style: none; margin: var(--rvds-space-6) 0; padding: 0; }
 .rvds-gallery--2-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .rvds-gallery--3-columns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .rvds-gallery__item { min-inline-size: 0; }

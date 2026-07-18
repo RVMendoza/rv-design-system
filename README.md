@@ -8,6 +8,8 @@ Status: Milestone 2 foundation. The package is not published to npm.
 
 Rendered classes are stable, namespaced BEM hooks such as `rvds-button`, `rvds-button--primary`, `rvds-paragraph`, and `rvds-quote__attribution`. Every custom property begins with `--rvds-`, for example `--rvds-color-action` and `--rvds-space-4`. Unprefixed tokens are not supported.
 
+RVDS owns the document's dark canvas and Inter typography. Sunflower gold is used for text links and focus indicators; verdigris is used for primary actions and success states.
+
 ## Blog components
 
 The package includes long-form `Paragraph`, `Heading`, `Quote`, `CodeBlock`, and `Divider` primitives; mixed `BulletedList` and `NumberedList` compositions; responsive `Image`, `Gallery`, and `VideoEmbed` media; and `YoutubeEmbed`, `InstagramEmbed`, `TiktokEmbed`, and `GenericEmbed` previews. Youtube uses its privacy-enhanced host and loads the native player lazily when it nears the viewport. Other provider previews never inject third-party scripts or iframes.

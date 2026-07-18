@@ -1,4 +1,4 @@
-.rvds-bulleted-list, .rvds-numbered-list { margin-block: var(--rvds-list-flow-space); max-inline-size: var(--rvds-article-measure); padding-inline-start: var(--rvds-list-indent); }
+.rvds-bulleted-list, .rvds-numbered-list { font-family: var(--rvds-font-family-body); margin-block: var(--rvds-list-flow-space); max-inline-size: var(--rvds-article-measure); padding-inline-start: var(--rvds-list-indent); }
 .rvds-bulleted-list { list-style: none; }
 .rvds-bulleted-list > li { position: relative; }
 .rvds-bulleted-list > li::before { background: var(--rvds-color-accent); block-size: 0.125rem; content: ''; inline-size: 0.65rem; inset-block-start: 0.75em; inset-inline-start: calc(-1 * var(--rvds-list-marker-width)); position: absolute; }

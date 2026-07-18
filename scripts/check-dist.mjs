@@ -22,11 +22,17 @@ for (const className of requiredClasses) {
   }
 }
 
-if (!css.includes('body{background:var(--rvds-color-background)')) {
-  throw new Error('Compiled CSS is missing the RVDS global dark canvas.');
+if (!css.includes('html{background:var(--rvds-color-background);color:var(--rvds-color-text);font-family:var(--rvds-font-family-body)')) {
+  throw new Error('Compiled CSS is missing authoritative RVDS root typography and canvas.');
 }
-if (!css.includes('font-family:var(--rvds-font-family-body)')) {
-  throw new Error('Compiled CSS is missing RVDS global body typography.');
+if (!css.includes('button,input,select,textarea{color:inherit;font:inherit}')) {
+  throw new Error('Compiled CSS must make native controls inherit RVDS typography.');
+}
+for (const mapping of ['--rvds-color-action:var(--rvds-color-verdigris)', '--rvds-color-action-hover:var(--rvds-color-verdigris-hover)', '--rvds-color-link:var(--rvds-color-sunflower-gold)', '--rvds-color-focus:var(--rvds-color-sunflower-gold)']) {
+  if (!css.includes(mapping)) throw new Error(`Compiled CSS has the wrong semantic color mapping: ${mapping}`);
+}
+if (/Georgia|Times New Roman|(?:^|[,\s])serif(?:[,;\s]|$)/i.test(css)) {
+  throw new Error('Compiled CSS contains a forbidden serif font declaration.');
 }
 
 for (const exportName of ['YoutubeEmbed', 'YoutubeEmbedProps', 'TiktokEmbed']) {

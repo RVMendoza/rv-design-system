@@ -11,6 +11,15 @@ for (const token of required) {
   if (!css.includes(`${token}:`)) throw new Error(`Required semantic token missing: ${token}`);
 }
 
+for (const mapping of [
+  '--rvds-color-action: var(--rvds-color-verdigris)',
+  '--rvds-color-action-hover: var(--rvds-color-verdigris-hover)',
+  '--rvds-color-link: var(--rvds-color-sunflower-gold)',
+  '--rvds-color-focus: var(--rvds-color-sunflower-gold)',
+]) {
+  if (!css.includes(mapping)) throw new Error(`Semantic color mapping is incorrect: ${mapping}`);
+}
+
 const codeStyles = readFileSync(new URL('../src/components/Typography.module.css', import.meta.url), 'utf8');
 if (!/\.rvds-code-block__pre\s*\{[^}]*border-radius:\s*var\(--rvds-radius-xs\)/s.test(codeStyles)) {
   throw new Error('Code blocks must use --rvds-radius-xs.');
@@ -28,6 +37,9 @@ const cssFiles = readdirSync(sourceRoot, { recursive: true })
   .map((path) => ({ path, contents: readFileSync(new URL(path, sourceRoot), 'utf8') }));
 
 for (const { path, contents } of cssFiles) {
+  if (/Georgia|Times New Roman|(?:^|[,'"\s])serif(?:[,;'"\s]|$)/i.test(contents)) {
+    throw new Error(`Serif typography is not allowed in ${path}`);
+  }
   for (const match of contents.matchAll(/^\s*(--[a-z][a-z0-9-]*)\s*:/gm)) {
     if (!match[1].startsWith('--rvds-')) throw new Error(`Unnamespaced custom property in ${path}: ${match[1]}`);
   }
@@ -54,11 +66,14 @@ function contrast(foreground, background) {
 const checks = [
   ['primary text', '#f8f7ff', '#020202', 4.5],
   ['muted text', '#b8b5bd', '#020202', 4.5],
-  ['link', '#1b998b', '#020202', 4.5],
-  ['action text', '#020202', '#f4b942', 4.5],
-  ['action hover text', '#020202', '#ffd166', 4.5],
-  ['primary link hover', '#f4b942', '#020202', 4.5],
-  ['focus indicator', '#f4b942', '#020202', 3],
+  ['link on canvas', '#f4b942', '#020202', 4.5],
+  ['link on raised surface', '#f4b942', '#0e0e10', 4.5],
+  ['action text', '#020202', '#1b998b', 4.5],
+  ['action hover text', '#020202', '#32b8a8', 4.5],
+  ['primary link inverse hover', '#1b998b', '#020202', 4.5],
+  ['focus indicator on canvas', '#f4b942', '#020202', 3],
+  ['focus indicator on raised surface', '#f4b942', '#0e0e10', 3],
+  ['focus separator on action', '#020202', '#1b998b', 3],
   ['error text', '#ff929a', '#020202', 4.5],
 ];
 

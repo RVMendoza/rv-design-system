@@ -24,7 +24,7 @@ Open `http://localhost:6006`. Run the complete verification suite with `pnpm che
 
 ## Visual description
 
-The foundation is minimal and dark: a nearly black canvas, ghost-white Inter typography, restrained raised surfaces, verdigris links, and sunflower-gold actions. Flat color, spacing, and type hierarchy carry the interface; gradients are intentionally excluded. Dim grey is reserved for borders, while an accessible derived grey supports muted text.
+The foundation is minimal and dark: a nearly black canvas, ghost-white Inter typography, restrained raised surfaces, sunflower-gold links and focus, and verdigris actions. Flat color, spacing, and type hierarchy carry the interface; gradients are intentionally excluded. Dim grey is reserved for borders, while an accessible derived grey supports muted text.
 
 ## Accessibility and performance checks
 
@@ -34,7 +34,7 @@ The foundation is minimal and dark: a nearly black canvas, ghost-white Inter typ
 - Visible focus, reduced-motion tokens, native semantics, 44px control height, long-content examples, and 320px-friendly layouts are built in.
 - Package build is 3.78 kB JavaScript / 4.45 kB CSS before gzip; React remains a peer dependency.
 - Storybook production build passes. Its documentation/axe bundles are intentionally much larger than the shipped package and are not delivered to the website.
-- Static token checks reject the removed cream, coral, blue, and serif foundations and validate seven WCAG contrast pairs.
+- Static token checks reject the removed cream, coral, blue, and serif foundations and validate eleven WCAG contrast pairs.
 - Source and distribution checks reject unnamespaced tokens, invalid BEM selectors, and hashed public class names.
 - Inter is loaded from Google Fonts only by Storybook. The package itself makes no external font request and retains a system-sans fallback stack.
 

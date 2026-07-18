@@ -14,7 +14,7 @@ Repository-wide implementation rules for humans and AI agents live in [`AGENTS.m
 - Components must reflow at 320px and remain usable at 200% zoom.
 - Content examples include long labels and narrow containers.
 - Motion uses shared tokens and respects `prefers-reduced-motion`.
-- Sunflower-gold actions use black text, and verdigris links retain at least 4.5:1 contrast against the black canvas.
+- Verdigris actions use black text, sunflower-gold links retain at least 4.5:1 contrast on the black canvas and raised surfaces, and gold focus rings use a black separator over verdigris controls.
 - Muted copy uses an accessible derived token rather than raw dim grey, which is reserved for borders and non-text separation.
 
 ## Keyboard behavior
