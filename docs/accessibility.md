@@ -1,0 +1,25 @@
+# Accessibility principles
+
+The target is WCAG 2.2 AA. Automated checks are a floor, not proof of conformance.
+
+## Component expectations
+
+- Use native HTML behavior before ARIA.
+- Preserve visible focus and logical DOM order.
+- Maintain 44px minimum interactive control height where practical.
+- Do not communicate state by color alone.
+- Labels and error messages must be programmatically associated with controls.
+- Components must reflow at 320px and remain usable at 200% zoom.
+- Content examples include long labels and narrow containers.
+- Motion uses shared tokens and respects `prefers-reduced-motion`.
+
+## Keyboard behavior
+
+- `Button`: Tab focuses; Enter or Space activates; disabled/loading states cannot activate.
+- `Link`: Tab focuses; Enter follows the destination.
+- `SkipLink`: first focusable element; becomes visible on focus and moves focus toward main content.
+- `TextInput`: Tab focuses; labels activate the input; errors are included in the accessible description.
+
+## Required review before release
+
+Run Storybook's accessibility checks, keyboard-test every interactive story, inspect forced-colors mode, test 200% zoom and 320px reflow, and perform screen-reader spot checks in VoiceOver and NVDA when available.

@@ -1,0 +1,65 @@
+:root {
+  color-scheme: light;
+  --rv-color-ink-900: #241f1a;
+  --rv-color-ink-700: #51483f;
+  --rv-color-cream-50: #fffaf2;
+  --rv-color-cream-100: #f7efe3;
+  --rv-color-coral-600: #a83f2d;
+  --rv-color-coral-700: #8b3022;
+  --rv-color-blue-700: #174f67;
+  --rv-color-red-700: #a1262f;
+  --rv-color-green-700: #24623f;
+  --rv-color-white: #fff;
+
+  --color-text: var(--rv-color-ink-900);
+  --color-text-muted: var(--rv-color-ink-700);
+  --color-background: var(--rv-color-cream-50);
+  --color-surface: var(--rv-color-white);
+  --color-border: #cfc1b3;
+  --color-accent: var(--rv-color-coral-600);
+  --color-link: var(--rv-color-blue-700);
+  --color-focus: #7b3ff2;
+  --color-error: var(--rv-color-red-700);
+  --color-success: var(--rv-color-green-700);
+
+  --font-family-display: Georgia, 'Times New Roman', serif;
+  --font-family-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+  --font-size-2xl: clamp(2.25rem, 1.5rem + 3.5vw, 4.5rem);
+  --font-weight-regular: 400;
+  --font-weight-medium: 600;
+  --font-weight-bold: 750;
+  --line-height-tight: 1.08;
+  --line-height-body: 1.65;
+  --letter-spacing-tight: -0.025em;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --layout-content: 72rem;
+  --layout-reading: 70ch;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.65rem;
+  --radius-pill: 999px;
+  --border-width: 1px;
+  --shadow-sm: 0 0.25rem 1rem rgb(36 31 26 / 8%);
+  --focus-ring: 0 0 0 3px var(--color-background), 0 0 0 6px var(--color-focus);
+  --motion-fast: 120ms;
+  --motion-standard: 220ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --z-header: 20;
+  --z-dialog: 100;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --motion-fast: 0ms; --motion-standard: 0ms; }
+}

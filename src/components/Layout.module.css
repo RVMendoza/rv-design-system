@@ -1,0 +1,4 @@
+.container { inline-size: min(100% - 2rem, var(--layout-content)); margin-inline: auto; }
+.reading { max-inline-size: var(--layout-reading); }
+.stack { display: flex; flex-direction: column; gap: var(--stack-space, var(--space-5)); }
+.cluster { align-items: var(--cluster-align, center); display: flex; flex-wrap: wrap; gap: var(--cluster-space, var(--space-4)); justify-content: var(--cluster-justify, flex-start); }
