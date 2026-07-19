@@ -3,9 +3,84 @@ import { BulletedList, NumberedList } from '../components/Lists';
 const meta = { title: 'Blog/Lists', component: BulletedList } satisfies Meta<typeof BulletedList>;
 export default meta;
 type Story = StoryObj<typeof meta>;
-export const DashList: Story = { args: { children: null }, render: () => <BulletedList><li>First observation</li><li>Second observation</li><li>A longer observation that wraps naturally without separating its decorative dash from the list semantics</li></BulletedList> };
-export const Numbered: Story = { args: { children: null }, render: () => <NumberedList start={3}><li>Third step</li><li>Fourth step</li></NumberedList> };
-export const NestedDashes: Story = { args: { children: null }, render: () => <BulletedList><li>Parent dash<BulletedList><li>Child dash<BulletedList><li>Grandchild dash</li></BulletedList></li></BulletedList></li></BulletedList> };
-export const NestedNumbers: Story = { args: { children: null }, render: () => <NumberedList><li>Parent number<NumberedList><li>Child number</li></NumberedList></li></NumberedList> };
-export const DashesInsideNumbers: Story = { args: { children: null }, render: () => <NumberedList><li>Plan the meal<BulletedList><li>Choose a main dish</li><li>Check the pantry</li></BulletedList></li></NumberedList> };
-export const NumbersInsideDashes: Story = { args: { children: null }, render: () => <BulletedList><li>Before publishing<NumberedList><li>Read the draft</li><li>Check every link</li></NumberedList></li></BulletedList> };
+export const DashList: Story = {
+  args: { children: null },
+  render: () => (
+    <BulletedList>
+      <li>First observation</li>
+      <li>Second observation</li>
+      <li>
+        A longer observation that wraps naturally without separating its decorative dash from the
+        list semantics
+      </li>
+    </BulletedList>
+  ),
+};
+export const Numbered: Story = {
+  args: { children: null },
+  render: () => (
+    <NumberedList start={3}>
+      <li>Third step</li>
+      <li>Fourth step</li>
+    </NumberedList>
+  ),
+};
+export const NestedDashes: Story = {
+  args: { children: null },
+  render: () => (
+    <BulletedList>
+      <li>
+        Parent dash
+        <BulletedList>
+          <li>
+            Child dash
+            <BulletedList>
+              <li>Grandchild dash</li>
+            </BulletedList>
+          </li>
+        </BulletedList>
+      </li>
+    </BulletedList>
+  ),
+};
+export const NestedNumbers: Story = {
+  args: { children: null },
+  render: () => (
+    <NumberedList>
+      <li>
+        Parent number
+        <NumberedList>
+          <li>Child number</li>
+        </NumberedList>
+      </li>
+    </NumberedList>
+  ),
+};
+export const DashesInsideNumbers: Story = {
+  args: { children: null },
+  render: () => (
+    <NumberedList>
+      <li>
+        Plan the meal
+        <BulletedList>
+          <li>Choose a main dish</li>
+          <li>Check the pantry</li>
+        </BulletedList>
+      </li>
+    </NumberedList>
+  ),
+};
+export const NumbersInsideDashes: Story = {
+  args: { children: null },
+  render: () => (
+    <BulletedList>
+      <li>
+        Before publishing
+        <NumberedList>
+          <li>Read the draft</li>
+          <li>Check every link</li>
+        </NumberedList>
+      </li>
+    </BulletedList>
+  ),
+};

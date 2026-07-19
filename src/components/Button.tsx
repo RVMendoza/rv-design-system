@@ -11,7 +11,32 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-export function Button({ variant = 'primary', loading = false, fullWidth = false, disabled, className = '', children, ...props }: ButtonProps) {
-  const classes = [styles['rvds-button'], styles[`rvds-button--${variant}`], fullWidth ? styles['rvds-button--full-width'] : '', loading ? styles['rvds-button--loading'] : '', className].filter(Boolean).join(' ');
-  return <button className={classes} disabled={disabled || loading} aria-busy={loading || undefined} {...props}>{loading ? 'Loading…' : children}</button>;
+export function Button({
+  variant = 'primary',
+  loading = false,
+  fullWidth = false,
+  disabled,
+  className = '',
+  children,
+  ...props
+}: ButtonProps) {
+  const classes = [
+    styles['rvds-button'],
+    styles[`rvds-button--${variant}`],
+    fullWidth ? styles['rvds-button--full-width'] : '',
+    loading ? styles['rvds-button--loading'] : '',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
+  return (
+    <button
+      className={classes}
+      disabled={disabled || loading}
+      aria-busy={loading || undefined}
+      {...props}
+    >
+      {loading ? 'Loading…' : children}
+    </button>
+  );
 }

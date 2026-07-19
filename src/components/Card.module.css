@@ -1,1 +1,8 @@
-.rvds-card { background: var(--rvds-color-surface); border: var(--rvds-border-width) solid var(--rvds-color-border); border-radius: var(--rvds-radius-md); box-shadow: var(--rvds-shadow-sm); font-family: var(--rvds-font-family-body); padding: var(--rvds-space-5); }
+.rvds-card {
+  background: var(--rvds-color-surface);
+  border: var(--rvds-border-width) solid var(--rvds-color-border);
+  border-radius: var(--rvds-radius-md);
+  box-shadow: var(--rvds-shadow-sm);
+  font-family: var(--rvds-font-family-body);
+  padding: var(--rvds-space-5);
+}

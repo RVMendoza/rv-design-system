@@ -32,8 +32,10 @@
   --rvds-color-disabled-text: var(--rvds-color-control-disabled-text);
   --rvds-color-white: var(--rvds-color-ghost-white);
 
-  --rvds-font-family-display: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --rvds-font-family-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --rvds-font-family-display:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --rvds-font-family-body:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --rvds-font-size-xs: 0.75rem;
   --rvds-font-size-sm: 0.875rem;
   --rvds-font-size-md: 1rem;
@@ -47,7 +49,8 @@
   --rvds-line-height-tight: 1.08;
   --rvds-line-height-body: 1.65;
   --rvds-letter-spacing-tight: -0.025em;
-  --rvds-font-family-code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  --rvds-font-family-code:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
   --rvds-heading-size-1: clamp(2.5rem, 1.8rem + 3vw, 4.5rem);
   --rvds-heading-size-2: clamp(2rem, 1.6rem + 2vw, 3.25rem);
   --rvds-heading-size-3: clamp(1.6rem, 1.35rem + 1.25vw, 2.35rem);
@@ -63,6 +66,7 @@
   --rvds-space-6: 2rem;
   --rvds-space-7: 3rem;
   --rvds-space-8: 4.5rem;
+  --rvds-layout-gutter: clamp(1.5rem, 4vw, 2.5rem);
   --rvds-layout-content: 72rem;
   --rvds-layout-reading: 70ch;
   --rvds-article-measure: 70ch;
@@ -78,6 +82,8 @@
   --rvds-list-nested-space: var(--rvds-space-2);
   --rvds-gallery-gap: var(--rvds-space-4);
   --rvds-media-aspect-ratio: 16 / 9;
+  --rvds-article-preview-image-ratio: 4 / 3;
+  --rvds-article-preview-gap: clamp(var(--rvds-space-4), 4vw, var(--rvds-space-7));
   --rvds-radius-sm: 0.25rem;
   --rvds-radius-xs: 0.125rem;
   --rvds-radius-md: 0.65rem;
@@ -93,5 +99,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root { --rvds-motion-fast: 0ms; --rvds-motion-standard: 0ms; }
+  :root {
+    --rvds-motion-fast: 0ms;
+    --rvds-motion-standard: 0ms;
+  }
 }

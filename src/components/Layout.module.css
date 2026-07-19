@@ -1,4 +1,23 @@
-.rvds-container { font-family: var(--rvds-font-family-body); inline-size: min(100% - 2rem, var(--rvds-layout-content)); margin-inline: auto; }
-.rvds-container--reading { max-inline-size: var(--rvds-layout-reading); }
-.rvds-stack { display: flex; flex-direction: column; gap: var(--rvds-stack-space, var(--rvds-space-5)); }
-.rvds-cluster { align-items: var(--rvds-cluster-align, center); display: flex; flex-wrap: wrap; gap: var(--rvds-cluster-space, var(--rvds-space-4)); justify-content: var(--rvds-cluster-justify, flex-start); }
+.rvds-container {
+  font-family: var(--rvds-font-family-body);
+  inline-size: min(
+    100% - var(--rvds-layout-gutter) - var(--rvds-layout-gutter),
+    var(--rvds-layout-content)
+  );
+  margin-inline: auto;
+}
+.rvds-container--reading {
+  max-inline-size: var(--rvds-layout-reading);
+}
+.rvds-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rvds-stack-space, var(--rvds-space-5));
+}
+.rvds-cluster {
+  align-items: var(--rvds-cluster-align, center);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rvds-cluster-space, var(--rvds-space-4));
+  justify-content: var(--rvds-cluster-justify, flex-start);
+}

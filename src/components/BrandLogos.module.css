@@ -1,0 +1,98 @@
+.rvds-brand-logo-list {
+  display: grid;
+  font-family: var(--rvds-font-family-body);
+  gap: var(--rvds-space-3);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rvds-brand-logo-list > li {
+  margin: 0;
+  min-inline-size: 0;
+}
+
+.rvds-brand-logo,
+.rvds-brand-logo__link,
+.rvds-brand-logo__content {
+  block-size: 100%;
+}
+
+.rvds-brand-logo {
+  font-family: var(--rvds-font-family-body);
+}
+
+.rvds-brand-logo__link,
+.rvds-brand-logo__content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-block-size: 5rem;
+  padding: var(--rvds-space-2);
+}
+
+.rvds-brand-logo__link {
+  color: var(--rvds-color-text);
+  text-decoration: none;
+  transition:
+    transform var(--rvds-motion-fast) var(--rvds-ease-standard),
+    color var(--rvds-motion-fast) var(--rvds-ease-standard);
+}
+
+.rvds-brand-logo__link:hover {
+  color: var(--rvds-color-link);
+  transform: translateY(-0.125rem);
+  text-decoration: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.2em;
+}
+
+.rvds-brand-logo__link:focus-visible {
+  box-shadow: var(--rvds-focus-ring);
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+.rvds-brand-logo__image {
+  block-size: 3.5rem;
+  display: block;
+  inline-size: min(100%, 9rem);
+  object-fit: contain;
+}
+
+.rvds-brand-logo__fallback {
+  color: var(--rvds-color-text);
+  font-size: var(--rvds-font-size-sm);
+  font-weight: var(--rvds-font-weight-bold);
+  letter-spacing: 0.035em;
+  line-height: 1.2;
+  max-inline-size: 11rem;
+  text-align: center;
+}
+
+.rvds-brand-logo--text-only .rvds-brand-logo__fallback {
+  opacity: 0.82;
+  text-wrap: balance;
+}
+
+.rvds-brand-logo--text-only:is(:hover, :focus-within) .rvds-brand-logo__fallback {
+  opacity: 1;
+}
+
+.rvds-brand-logo__name {
+  block-size: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  inline-size: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+@media (max-width: 30rem) {
+  .rvds-brand-logo-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

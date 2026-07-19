@@ -5,9 +5,11 @@ import { Button } from './Button';
 
 describe('Button', () => {
   it('supports keyboard activation', async () => {
-    const user = userEvent.setup(); const onClick = vi.fn();
+    const user = userEvent.setup();
+    const onClick = vi.fn();
     render(<Button onClick={onClick}>Continue</Button>);
-    await user.tab(); await user.keyboard('{Enter}');
+    await user.tab();
+    await user.keyboard('{Enter}');
     expect(onClick).toHaveBeenCalledOnce();
   });
   it('announces loading and prevents activation', () => {
@@ -16,7 +18,15 @@ describe('Button', () => {
     expect(screen.getByRole('button')).toHaveAttribute('aria-busy', 'true');
   });
   it('exposes stable RVDS BEM classes', () => {
-    render(<Button variant="secondary" fullWidth>Continue</Button>);
-    expect(screen.getByRole('button')).toHaveClass('rvds-button', 'rvds-button--secondary', 'rvds-button--full-width');
+    render(
+      <Button variant="secondary" fullWidth>
+        Continue
+      </Button>,
+    );
+    expect(screen.getByRole('button')).toHaveClass(
+      'rvds-button',
+      'rvds-button--secondary',
+      'rvds-button--full-width',
+    );
   });
 });

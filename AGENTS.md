@@ -25,7 +25,7 @@ These rules apply to every file in this repository. Human instructions in the ac
 - Use strict TypeScript and document public props. Keep component names generic and reusable.
 - Preserve native element props and behavior. Avoid unnecessary client-side JavaScript and dependencies.
 - Every public component needs representative Storybook stories, meaningful interaction or unit tests, and accessibility checks.
-- Run `pnpm check` with Node.js 22 or newer before handoff. Add regression coverage for public classes, tokens, semantics, and keyboard behavior.
+- Run `pnpm format` after editing supported source files, then run `pnpm check` with Node.js 22 or newer before handoff. Add regression coverage for public classes, tokens, semantics, and keyboard behavior.
 - Treat stable BEM classes, `--rvds-*` tokens, React exports, and documented props as public APIs. Record breaking changes with Changesets.
 
 ## Privacy and repository boundary

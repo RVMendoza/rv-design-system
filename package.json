@@ -4,26 +4,40 @@
   "private": true,
   "description": "Accessible, editorial design primitives for RV Mendoza projects.",
   "type": "module",
-  "sideEffects": ["**/*.css"],
-  "files": ["dist", "README.md", "RIGHTS.md"],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "RIGHTS.md"
+  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
     "./styles.css": "./dist/styles.css",
     "./tokens.css": "./dist/styles.css"
   },
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json && node scripts/check-dist.mjs",
     "build-storybook": "storybook build",
-    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm build-storybook",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm build-storybook",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "eslint .",
     "storybook": "storybook dev -p 6006",
     "test": "node scripts/check-tokens.mjs && vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
   },
-  "peerDependencies": { "react": ">=19", "react-dom": ">=19" },
+  "peerDependencies": {
+    "react": ">=19",
+    "react-dom": ">=19"
+  },
   "devDependencies": {
     "@changesets/cli": "2.31.1",
     "@eslint/js": "10.0.1",
@@ -41,6 +55,7 @@
     "eslint-plugin-react-refresh": "0.5.3",
     "globals": "17.7.0",
     "jsdom": "29.1.1",
+    "prettier": "3.9.5",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "storybook": "10.5.2",
@@ -50,5 +65,10 @@
     "vitest": "4.1.10"
   },
   "packageManager": "pnpm@11.9.0",
-  "engines": { "node": ">=22" }
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "simple-icons": "^16.26.0"
+  }
 }

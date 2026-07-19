@@ -54,21 +54,53 @@ Ordinary paragraphs, [text links](https://example.com), and lists remain Markdow
 />`;
 
 function MdxArticleExample() {
-  return <Container reading><article><Stack>
-    <header>
-      <Heading level={1}>A post with media</Heading>
-      <Paragraph size="lead">An example Astro MDX article using RVDS embeds.</Paragraph>
-    </header>
-    <Paragraph>Ordinary paragraphs, <a href="https://example.com">text links</a>, and lists remain Markdown.</Paragraph>
-    <BulletedList>
-      <li>Start with a semantic Markdown list.</li>
-      <li>Add richer media only where it helps.<NumberedList><li>Supply a descriptive title.</li><li>Keep provider metadata explicit.</li></NumberedList></li>
-    </BulletedList>
-    <InstagramEmbed description="Open this post on Instagram without loading provider scripts here." title="Instagram post" url="https://www.instagram.com/p/DESbLWOuM95/" />
-    <TiktokEmbed description="Open this video on Tiktok without loading provider scripts here." title="Tiktok video" url="https://www.tiktok.com/@rvxmendoza/video/7368864505985617195" />
-    <GenericEmbed description="View the media kit in a new tab." provider="Media kit" title="RV Mendoza media kit" url="https://beacons.ai/rvxmendoza/mediakit" />
-    <YoutubeEmbed caption="The privacy-enhanced player loads lazily near the viewport." title="Beyoncé – All Night" videoId="gM89Q5Eng_M" />
-  </Stack></article></Container>;
+  return (
+    <Container reading>
+      <article>
+        <Stack>
+          <header>
+            <Heading level={1}>A post with media</Heading>
+            <Paragraph size="lead">An example Astro MDX article using RVDS embeds.</Paragraph>
+          </header>
+          <Paragraph>
+            Ordinary paragraphs, <a href="https://example.com">text links</a>, and lists remain
+            Markdown.
+          </Paragraph>
+          <BulletedList>
+            <li>Start with a semantic Markdown list.</li>
+            <li>
+              Add richer media only where it helps.
+              <NumberedList>
+                <li>Supply a descriptive title.</li>
+                <li>Keep provider metadata explicit.</li>
+              </NumberedList>
+            </li>
+          </BulletedList>
+          <InstagramEmbed
+            description="Open this post on Instagram without loading provider scripts here."
+            title="Instagram post"
+            url="https://www.instagram.com/p/DESbLWOuM95/"
+          />
+          <TiktokEmbed
+            description="Open this video on Tiktok without loading provider scripts here."
+            title="Tiktok video"
+            url="https://www.tiktok.com/@rvxmendoza/video/7368864505985617195"
+          />
+          <GenericEmbed
+            description="View the media kit in a new tab."
+            provider="Media kit"
+            title="RV Mendoza media kit"
+            url="https://beacons.ai/rvxmendoza/mediakit"
+          />
+          <YoutubeEmbed
+            caption="The privacy-enhanced player loads lazily near the viewport."
+            title="Beyoncé – All Night"
+            videoId="gM89Q5Eng_M"
+          />
+        </Stack>
+      </article>
+    </Container>
+  );
 }
 
 const meta = {

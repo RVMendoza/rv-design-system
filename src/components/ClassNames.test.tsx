@@ -7,17 +7,37 @@ import { SkipLink } from './SkipLink';
 
 describe('RVDS public class names', () => {
   it('uses stable BEM blocks and modifiers for layout', () => {
-    const { container } = render(<Container reading><Stack><Cluster>Content</Cluster></Stack></Container>);
+    const { container } = render(
+      <Container reading>
+        <Stack>
+          <Cluster>Content</Cluster>
+        </Stack>
+      </Container>,
+    );
     expect(container.firstChild).toHaveClass('rvds-container', 'rvds-container--reading');
     expect(container.querySelector('.rvds-stack')).not.toBeNull();
     expect(container.querySelector('.rvds-cluster')).not.toBeNull();
   });
 
   it('uses stable classes for cards, links, and skip navigation', () => {
-    const { container } = render(<><Card>Card</Card><Link href="#writing">Writing</Link><Link variant="primary" href="#work">Work</Link><SkipLink /></>);
+    const { container } = render(
+      <>
+        <Card>Card</Card>
+        <Link href="#writing">Writing</Link>
+        <Link variant="primary" href="#work">
+          Work
+        </Link>
+        <SkipLink />
+      </>,
+    );
     expect(container.querySelector('.rvds-card')).not.toBeNull();
     expect(screen.getByRole('link', { name: 'Writing' })).toHaveClass('rvds-link');
-    expect(screen.getByRole('link', { name: 'Work' })).toHaveClass('rvds-button', 'rvds-button--primary');
-    expect(screen.getByRole('link', { name: 'Skip to main content' })).toHaveClass('rvds-skip-link');
+    expect(screen.getByRole('link', { name: 'Work' })).toHaveClass(
+      'rvds-button',
+      'rvds-button--primary',
+    );
+    expect(screen.getByRole('link', { name: 'Skip to main content' })).toHaveClass(
+      'rvds-skip-link',
+    );
   });
 });

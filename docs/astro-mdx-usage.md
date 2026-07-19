@@ -33,19 +33,14 @@ The website layout owns the mapping or styling for generated Markdown elements s
 
 ```mdx
 ---
-title: "A post with media"
-description: "An example Astro MDX article using RVDS embeds."
+title: 'A post with media'
+description: 'An example Astro MDX article using RVDS embeds.'
 publishedAt: 2026-07-18
 status: publish
 draft: false
 ---
 
-import {
-  GenericEmbed,
-  InstagramEmbed,
-  TiktokEmbed,
-  YoutubeEmbed,
-} from '@rvmendoza/design-system';
+import { GenericEmbed, InstagramEmbed, TiktokEmbed, YoutubeEmbed } from '@rvmendoza/design-system';
 
 # A post with media
 

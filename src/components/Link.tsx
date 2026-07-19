@@ -8,6 +8,15 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 export function Link({ variant = 'text', className = '', children, ...props }: LinkProps) {
-  const classes = variant === 'text' ? [styles['rvds-link'], className].filter(Boolean).join(' ') : [styles['rvds-button'], styles[`rvds-button--${variant}`], className].filter(Boolean).join(' ');
-  return <a className={classes} {...props}>{children}</a>;
+  const classes =
+    variant === 'text'
+      ? [styles['rvds-link'], className].filter(Boolean).join(' ')
+      : [styles['rvds-button'], styles[`rvds-button--${variant}`], className]
+          .filter(Boolean)
+          .join(' ');
+  return (
+    <a className={classes} {...props}>
+      {children}
+    </a>
+  );
 }

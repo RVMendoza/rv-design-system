@@ -8,7 +8,16 @@ export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
 }
 
 export function Paragraph({ size = 'body', className = '', children, ...props }: ParagraphProps) {
-  return <p className={[styles['rvds-paragraph'], styles[`rvds-paragraph--${size}`], className].filter(Boolean).join(' ')} {...props}>{children}</p>;
+  return (
+    <p
+      className={[styles['rvds-paragraph'], styles[`rvds-paragraph--${size}`], className]
+        .filter(Boolean)
+        .join(' ')}
+      {...props}
+    >
+      {children}
+    </p>
+  );
 }
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
@@ -22,7 +31,16 @@ export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
 
 export function Heading({ level, size = level, className = '', children, ...props }: HeadingProps) {
   const Element = `h${level}` as const;
-  return <Element className={[styles['rvds-heading'], styles[`rvds-heading--${size}`], className].filter(Boolean).join(' ')} {...props}>{children}</Element>;
+  return (
+    <Element
+      className={[styles['rvds-heading'], styles[`rvds-heading--${size}`], className]
+        .filter(Boolean)
+        .join(' ')}
+      {...props}
+    >
+      {children}
+    </Element>
+  );
 }
 
 export interface QuoteProps extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
@@ -31,11 +49,25 @@ export interface QuoteProps extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
   children: ReactNode;
 }
 
-export function Quote({ attribution, citationUrl, className = '', children, ...props }: QuoteProps) {
-  return <figure className={[styles['rvds-quote'], className].filter(Boolean).join(' ')}>
-    <blockquote className={styles['rvds-quote__body']} cite={citationUrl} {...props}>{children}</blockquote>
-    {attribution && <figcaption className={styles['rvds-quote__attribution']}>{citationUrl ? <a href={citationUrl}>{attribution}</a> : attribution}</figcaption>}
-  </figure>;
+export function Quote({
+  attribution,
+  citationUrl,
+  className = '',
+  children,
+  ...props
+}: QuoteProps) {
+  return (
+    <figure className={[styles['rvds-quote'], className].filter(Boolean).join(' ')}>
+      <blockquote className={styles['rvds-quote__body']} cite={citationUrl} {...props}>
+        {children}
+      </blockquote>
+      {attribution && (
+        <figcaption className={styles['rvds-quote__attribution']}>
+          {citationUrl ? <a href={citationUrl}>{attribution}</a> : attribution}
+        </figcaption>
+      )}
+    </figure>
+  );
 }
 
 export interface CodeBlockProps extends HTMLAttributes<HTMLElement> {
@@ -45,14 +77,33 @@ export interface CodeBlockProps extends HTMLAttributes<HTMLElement> {
   wrap?: boolean;
 }
 
-export function CodeBlock({ code, language, caption, wrap = false, className = '', ...props }: CodeBlockProps) {
-  return <figure className={[styles['rvds-code-block'], wrap ? styles['rvds-code-block--wrap'] : '', className].filter(Boolean).join(' ')}>
-    {caption && <figcaption className={styles['rvds-code-block__caption']}>{caption}</figcaption>}
-    <pre className={styles['rvds-code-block__pre']}><code className={styles['rvds-code-block__code']} data-language={language} {...props}>{code}</code></pre>
-  </figure>;
+export function CodeBlock({
+  code,
+  language,
+  caption,
+  wrap = false,
+  className = '',
+  ...props
+}: CodeBlockProps) {
+  return (
+    <figure
+      className={[styles['rvds-code-block'], wrap ? styles['rvds-code-block--wrap'] : '', className]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      {caption && <figcaption className={styles['rvds-code-block__caption']}>{caption}</figcaption>}
+      <pre className={styles['rvds-code-block__pre']}>
+        <code className={styles['rvds-code-block__code']} data-language={language} {...props}>
+          {code}
+        </code>
+      </pre>
+    </figure>
+  );
 }
 
 export type DividerProps = HTMLAttributes<HTMLHRElement>;
 export function Divider({ className = '', ...props }: DividerProps) {
-  return <hr className={[styles['rvds-divider'], className].filter(Boolean).join(' ')} {...props} />;
+  return (
+    <hr className={[styles['rvds-divider'], className].filter(Boolean).join(' ')} {...props} />
+  );
 }
