@@ -12,6 +12,7 @@ export const Buttons: Story = {
       <Button>Start a project</Button>
       <Button variant="secondary">Read the story</Button>
       <Button variant="quiet">Maybe later</Button>
+      <Button variant="subtle">Open details</Button>
       <Button disabled>Unavailable</Button>
       <Button loading>Sending</Button>
     </Cluster>
@@ -29,6 +30,16 @@ export const Links: Story = {
         Secondary link
       </Link>
     </Cluster>
+  ),
+};
+export const FullWidthActionLink: Story = {
+  args: { children: 'View the media kit' },
+  render: () => (
+    <div style={{ inlineSize: 'min(100%, 24rem)' }}>
+      <Link href="#example" variant="subtle" fullWidth>
+        View the media kit
+      </Link>
+    </div>
   ),
 };
 export const PrimaryLinkButtonStates: Story = {

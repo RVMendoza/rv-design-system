@@ -3,7 +3,7 @@ import styles from './Button.module.css';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Visual emphasis. Does not change the button's semantic purpose. */
-  variant?: 'primary' | 'secondary' | 'quiet';
+  variant?: 'primary' | 'secondary' | 'quiet' | 'subtle';
   /** Announces progress and prevents repeat activation. */
   loading?: boolean;
   /** Expands the button to its container width. */

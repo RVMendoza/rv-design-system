@@ -19,12 +19,16 @@ These rules apply to every file in this repository. Human instructions in the ac
 - Every custom property must start with `--rvds-`. Do not add compatibility aliases without explicit approval.
 - Use semantic tokens in components rather than raw color values. Keep sunflower gold for links, focus, and attention; use verdigris for actions and success.
 - Preserve the minimal dark Inter-based direction. Do not add gradients, glass effects, excessive rounding, or animation libraries without explicit approval.
+- Model reusable visual and layout behavior as explicit component props with stable BEM modifiers. Consumer pages should not need contextual selectors such as `.page .rvds-button` to alter component shape, width, alignment, or interaction states.
+- Name variants and components for their general behavior, not for a website route or campaign. Do not add a page-specific component to RVDS when a generic action-list, layout, or sizing API would describe the same contract.
+- Keep component styling owned by its RVDS block. Prefer a modifier placed on the block over ancestry-dependent specificity, `!important`, tag coupling, or assumptions about consumer DOM structure.
 
 ## Components and tests
 
 - Use strict TypeScript and document public props. Keep component names generic and reusable.
 - Preserve native element props and behavior. Avoid unnecessary client-side JavaScript and dependencies.
 - Every public component needs representative Storybook stories, meaningful interaction or unit tests, and accessibility checks.
+- When a consumer workaround reveals a missing RVDS capability, test the proposed API with at least two credible compositions before making it public. Cover long labels, narrow viewports, 200% zoom, keyboard focus, and interaction states.
 - Run `pnpm format` after editing supported source files, then run `pnpm check` with Node.js 22 or newer before handoff. Add regression coverage for public classes, tokens, semantics, and keyboard behavior.
 - Treat stable BEM classes, `--rvds-*` tokens, React exports, and documented props as public APIs. Record breaking changes with Changesets.
 

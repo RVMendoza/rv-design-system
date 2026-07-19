@@ -19,13 +19,13 @@ describe('Button', () => {
   });
   it('exposes stable RVDS BEM classes', () => {
     render(
-      <Button variant="secondary" fullWidth>
+      <Button variant="subtle" fullWidth>
         Continue
       </Button>,
     );
     expect(screen.getByRole('button')).toHaveClass(
       'rvds-button',
-      'rvds-button--secondary',
+      'rvds-button--subtle',
       'rvds-button--full-width',
     );
   });

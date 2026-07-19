@@ -24,7 +24,7 @@ describe('RVDS public class names', () => {
       <>
         <Card>Card</Card>
         <Link href="#writing">Writing</Link>
-        <Link variant="primary" href="#work">
+        <Link variant="subtle" href="#work" fullWidth>
           Work
         </Link>
         <SkipLink />
@@ -34,7 +34,8 @@ describe('RVDS public class names', () => {
     expect(screen.getByRole('link', { name: 'Writing' })).toHaveClass('rvds-link');
     expect(screen.getByRole('link', { name: 'Work' })).toHaveClass(
       'rvds-button',
-      'rvds-button--primary',
+      'rvds-button--subtle',
+      'rvds-button--full-width',
     );
     expect(screen.getByRole('link', { name: 'Skip to main content' })).toHaveClass(
       'rvds-skip-link',
