@@ -109,12 +109,10 @@
   inline-size: 100%;
 }
 .rvds-prose :global(figure:not([class^='rvds-']) > figcaption) {
-  border-inline-start: var(--rvds-border-width) solid var(--rvds-color-border);
   color: var(--rvds-color-text-muted);
   font-size: var(--rvds-font-size-xs);
   line-height: var(--rvds-line-height-body);
   margin-block-start: var(--rvds-space-2);
-  padding-inline-start: var(--rvds-space-3);
   text-align: center;
 }
 .rvds-prose :global(.rvds-prose__credit) {

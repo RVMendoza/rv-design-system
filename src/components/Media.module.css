@@ -34,13 +34,11 @@
 }
 .rvds-image-figure__caption,
 .rvds-video-figure__caption {
-  border-inline-start: var(--rvds-border-width) solid var(--rvds-color-border);
   color: var(--rvds-color-text-muted);
   font-size: var(--rvds-font-size-xs);
   line-height: var(--rvds-line-height-body);
   margin-block-start: var(--rvds-space-2);
   max-inline-size: 100%;
-  padding-inline-start: var(--rvds-space-3);
 }
 .rvds-image-figure__caption {
   display: grid;
