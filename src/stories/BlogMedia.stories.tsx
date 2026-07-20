@@ -16,6 +16,33 @@ export const ResponsiveImage: Story = {
     />
   ),
 };
+export const EditorialImageWithCredit: Story = {
+  render: () => (
+    <Image
+      alt="Abstract landscape placeholder"
+      aspectRatio="landscape"
+      caption="A centered caption gives readers useful context."
+      credit={{ name: 'Example Photographer', source: 'RVDS editorial archive' }}
+      height={500}
+      position="center 60%"
+      src={placeholder}
+      width={800}
+    />
+  ),
+};
+export const LongCaptionAndCredit: Story = {
+  render: () => (
+    <Image
+      alt="Abstract landscape placeholder"
+      aspectRatio="wide"
+      caption="A longer caption can explain what the image contributes without competing with a concise photo credit aligned at the edge."
+      credit={{ name: 'Example Photographer' }}
+      height={500}
+      src={placeholder}
+      width={800}
+    />
+  ),
+};
 export const ImageGallery: Story = {
   render: () => (
     <Gallery

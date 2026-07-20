@@ -55,11 +55,15 @@ export {
   Gallery,
   VideoEmbed,
   type ImageProps,
+  type ImageCredit,
+  type ImageAspectRatio,
+  type ImageFit,
   type GalleryItem,
   type GalleryProps,
   type VideoTrack,
   type VideoEmbedProps,
 } from './components/Media';
+export { Prose, type ProseProps } from './components/Prose';
 export {
   GenericEmbed,
   InstagramEmbed,

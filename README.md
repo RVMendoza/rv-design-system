@@ -12,9 +12,9 @@ RVDS owns the document's dark canvas and Inter typography. Sunflower gold is use
 
 ## Blog components
 
-The package includes long-form `Paragraph`, `Heading`, `Quote`, `CodeBlock`, and `Divider` primitives; mixed `BulletedList` and `NumberedList` compositions; responsive `Image`, `Gallery`, and `VideoEmbed` media; and `YoutubeEmbed`, `InstagramEmbed`, `TiktokEmbed`, and `GenericEmbed` previews. Youtube uses its privacy-enhanced host and loads the native player lazily when it nears the viewport. Other provider previews never inject third-party scripts or iframes.
+The package includes long-form `Paragraph`, `Heading`, `Quote`, `CodeBlock`, and `Divider` primitives; a `Prose` wrapper for native Markdown output; mixed `BulletedList` and `NumberedList` compositions; responsive `Image`, `Gallery`, and `VideoEmbed` media; and `YoutubeEmbed`, `InstagramEmbed`, `TiktokEmbed`, and `GenericEmbed` previews. `Image` supports reusable crops, focal positioning, centered captions, and right-aligned photo credits. Youtube uses its privacy-enhanced host. Instagram, Tiktok, and Youtube load responsive provider players lazily. Generic previews remain script-free outbound links.
 
-For an Astro Content Collections example, see the [Astro MDX usage guide](docs/astro-mdx-usage.md). Markdown parsing, generated-prose styling, and component mapping belong to the consuming website; this package supplies the components and CSS contract.
+For an Astro Content Collections example, see the [Astro MDX usage guide](docs/astro-mdx-usage.md). Markdown parsing and component mapping belong to the consuming website. Wrap generated article output in `Prose` to apply the RVDS typography and media treatment without rewriting ordinary Markdown as JSX.
 
 ## Requirements
 

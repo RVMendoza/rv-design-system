@@ -52,13 +52,13 @@ Ordinary paragraphs, [text links](https://example.com), and lists remain Markdow
   2. Keep provider metadata explicit.
 
 <InstagramEmbed
-  description="Open this post on Instagram without loading provider scripts here."
+  description="The complete Instagram post is available in the embedded player."
   title="Instagram post"
   url="https://www.instagram.com/p/DESbLWOuM95/"
 />
 
 <TiktokEmbed
-  description="Open this video on Tiktok without loading provider scripts here."
+  description="The complete Tiktok video is available in the embedded player."
   title="Tiktok video"
   url="https://www.tiktok.com/@rvxmendoza/video/7368864505985617195"
 />
@@ -77,4 +77,4 @@ Ordinary paragraphs, [text links](https://example.com), and lists remain Markdow
 />
 ```
 
-Titles and descriptions are required authoring decisions, not third-party metadata. Instagram, Tiktok, and generic cards remain outbound links with no provider scripts or iframes. Youtube is the only provider component that creates an iframe.
+Titles and descriptions are required authoring decisions, not third-party metadata. Instagram, Tiktok, and Youtube load lazy provider iframes so readers can view the content in place. Each Instagram and Tiktok embed also includes a safe outbound link. `GenericEmbed` remains a script-free outbound preview card.

@@ -56,11 +56,70 @@ export function GenericEmbed({
 }
 
 export type ProviderEmbedProps = Omit<GenericEmbedProps, 'provider'>;
+
+function providerPost(url: string, provider: 'Instagram' | 'Tiktok') {
+  const parsed = new URL(safeExternalUrl(url));
+  if (provider === 'Instagram') {
+    if (!/(^|\.)instagram\.com$/.test(parsed.hostname))
+      throw new TypeError('Instagram embeds require an Instagram post URL.');
+    const match = parsed.pathname.match(/^\/(p|reel|tv)\/([A-Za-z0-9_-]+)\/?$/);
+    if (!match) throw new TypeError('Instagram embeds require a post, reel, or video URL.');
+    return `https://www.instagram.com/${match[1]}/${match[2]}/embed/captioned/`;
+  }
+
+  if (!/(^|\.)tiktok\.com$/.test(parsed.hostname))
+    throw new TypeError('Tiktok embeds require a Tiktok video URL.');
+  const match = parsed.pathname.match(/^\/@[^/]+\/video\/(\d+)\/?$/);
+  if (!match) throw new TypeError('Tiktok embeds require a video URL.');
+  return `https://www.tiktok.com/player/v1/${match[1]}?description=1&music_info=1`;
+}
+
+function ProviderEmbed({
+  provider,
+  url,
+  title,
+  description,
+  className = '',
+}: ProviderEmbedProps & { provider: 'Instagram' | 'Tiktok' }) {
+  const href = safeExternalUrl(url);
+  const source = providerPost(url, provider);
+  const providerClass = provider.toLowerCase();
+  return (
+    <figure
+      className={[
+        styles['rvds-provider-embed'],
+        styles[`rvds-provider-embed--${providerClass}`],
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      <iframe
+        allow="encrypted-media; fullscreen; picture-in-picture"
+        allowFullScreen
+        className={styles['rvds-provider-embed__iframe']}
+        loading="lazy"
+        referrerPolicy="strict-origin-when-cross-origin"
+        src={source}
+        title={title}
+      />
+      <figcaption className={styles['rvds-provider-embed__caption']}>
+        {description && (
+          <span className={styles['rvds-provider-embed__description']}>{description}</span>
+        )}
+        <a href={href} rel="noopener noreferrer" target="_blank">
+          View on {provider}
+        </a>
+      </figcaption>
+    </figure>
+  );
+}
+
 export function InstagramEmbed(props: ProviderEmbedProps) {
-  return <GenericEmbed provider="Instagram" {...props} />;
+  return <ProviderEmbed provider="Instagram" {...props} />;
 }
 export function TiktokEmbed(props: ProviderEmbedProps) {
-  return <GenericEmbed provider="Tiktok" {...props} />;
+  return <ProviderEmbed provider="Tiktok" {...props} />;
 }
 
 export interface YoutubeEmbedProps {

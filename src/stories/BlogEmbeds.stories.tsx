@@ -15,7 +15,7 @@ export const Youtube: Story = {
 export const Instagram: Story = {
   render: () => (
     <InstagramEmbed
-      description="Open this post on Instagram without loading provider scripts here."
+      description="The complete Instagram post is available in the embedded player."
       title="Instagram post"
       url="https://www.instagram.com/p/DESbLWOuM95/"
     />
@@ -24,7 +24,7 @@ export const Instagram: Story = {
 export const Tiktok: Story = {
   render: () => (
     <TiktokEmbed
-      description="Open this video on Tiktok without loading provider scripts here."
+      description="The complete Tiktok video is available in the embedded player."
       title="Tiktok video"
       url="https://www.tiktok.com/@rvxmendoza/video/7368864505985617195"
     />

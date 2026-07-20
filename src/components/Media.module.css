@@ -6,6 +6,25 @@
 }
 .rvds-image {
   inline-size: 100%;
+  object-position: var(--rvds-image-object-position, center);
+}
+.rvds-image--aspect-square {
+  aspect-ratio: 1;
+}
+.rvds-image--aspect-portrait {
+  aspect-ratio: 3 / 4;
+}
+.rvds-image--aspect-landscape {
+  aspect-ratio: 3 / 2;
+}
+.rvds-image--aspect-wide {
+  aspect-ratio: 16 / 9;
+}
+.rvds-image--fit-cover {
+  object-fit: cover;
+}
+.rvds-image--fit-contain {
+  object-fit: contain;
 }
 .rvds-image-figure,
 .rvds-video-figure {
@@ -15,10 +34,38 @@
 }
 .rvds-image-figure__caption,
 .rvds-video-figure__caption {
+  border-inline-start: var(--rvds-border-width) solid var(--rvds-color-border);
   color: var(--rvds-color-text-muted);
-  font-size: var(--rvds-font-size-sm);
+  font-size: var(--rvds-font-size-xs);
+  line-height: var(--rvds-line-height-body);
   margin-block-start: var(--rvds-space-2);
+  max-inline-size: 100%;
+  padding-inline-start: var(--rvds-space-3);
+}
+.rvds-image-figure__caption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  text-align: center;
+}
+.rvds-image-figure__caption--with-credit {
+  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+}
+.rvds-image-figure__description {
+  min-inline-size: 0;
+}
+.rvds-image-figure__caption--with-credit .rvds-image-figure__description {
+  grid-column: 2;
   max-inline-size: var(--rvds-article-measure);
+}
+.rvds-image-figure__credit {
+  grid-column: 3;
+  justify-self: end;
+  margin-inline-start: var(--rvds-space-4);
+  text-align: end;
+}
+.rvds-image-figure__credit a {
+  color: var(--rvds-color-link);
 }
 .rvds-gallery {
   display: grid;
@@ -46,6 +93,18 @@
   inline-size: 100%;
 }
 @media (max-width: 40rem) {
+  .rvds-image-figure__caption--with-credit {
+    gap: var(--rvds-space-1);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rvds-image-figure__caption--with-credit .rvds-image-figure__description {
+    grid-column: 1;
+    padding-inline-start: 0;
+  }
+  .rvds-image-figure__credit {
+    grid-column: 1;
+    margin-inline-start: 0;
+  }
   .rvds-gallery--2-columns,
   .rvds-gallery--3-columns {
     grid-template-columns: 1fr;

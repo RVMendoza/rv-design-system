@@ -73,11 +73,56 @@
   font-size: var(--rvds-font-size-sm);
   margin-block-start: var(--rvds-space-2);
 }
+.rvds-provider-embed {
+  font-family: var(--rvds-font-family-body);
+  margin: var(--rvds-space-6) 0;
+  max-inline-size: min(100%, 36rem);
+}
+.rvds-provider-embed--instagram {
+  inline-size: 100%;
+}
+.rvds-provider-embed--tiktok {
+  inline-size: min(100%, 24rem);
+}
+.rvds-provider-embed__iframe {
+  background: var(--rvds-color-surface);
+  border: 0;
+  display: block;
+  inline-size: 100%;
+}
+.rvds-provider-embed--instagram .rvds-provider-embed__iframe {
+  aspect-ratio: 4 / 5;
+  min-block-size: 34rem;
+}
+.rvds-provider-embed--tiktok .rvds-provider-embed__iframe {
+  aspect-ratio: 9 / 16;
+}
+.rvds-provider-embed__caption {
+  align-items: baseline;
+  color: var(--rvds-color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--rvds-font-size-xs);
+  gap: var(--rvds-space-1) var(--rvds-space-3);
+  justify-content: space-between;
+  line-height: var(--rvds-line-height-body);
+  margin-block-start: var(--rvds-space-2);
+}
+.rvds-provider-embed__caption a {
+  color: var(--rvds-color-link);
+  margin-inline-start: auto;
+}
+.rvds-provider-embed__description {
+  min-inline-size: 0;
+}
 @media (max-width: 32rem) {
   .rvds-generic-embed {
     grid-template-columns: 1fr;
   }
   .rvds-generic-embed__thumbnail {
     max-block-size: 12rem;
+  }
+  .rvds-provider-embed--instagram .rvds-provider-embed__iframe {
+    min-block-size: 28rem;
   }
 }

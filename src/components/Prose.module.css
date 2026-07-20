@@ -1,0 +1,125 @@
+.rvds-prose {
+  color: var(--rvds-color-text);
+  font-family: var(--rvds-font-family-body);
+  min-inline-size: 0;
+}
+.rvds-prose--reading {
+  max-inline-size: var(--rvds-article-measure);
+}
+.rvds-prose--wide {
+  max-inline-size: 100%;
+}
+.rvds-prose :global(:where(h1, h2, h3, h4, h5, h6):not(.rvds-heading)) {
+  color: var(--rvds-color-text);
+  font-family: var(--rvds-font-family-display);
+  font-weight: var(--rvds-font-weight-bold);
+  letter-spacing: var(--rvds-letter-spacing-tight);
+  margin-block: var(--rvds-heading-space-before) var(--rvds-heading-space-after);
+  max-inline-size: var(--rvds-article-measure);
+  text-wrap: balance;
+}
+.rvds-prose :global(h1:not(.rvds-heading)) {
+  font-size: var(--rvds-heading-size-1);
+  line-height: 1.02;
+}
+.rvds-prose :global(h2:not(.rvds-heading)) {
+  font-size: var(--rvds-heading-size-2);
+  line-height: 1.08;
+}
+.rvds-prose :global(h3:not(.rvds-heading)) {
+  font-size: var(--rvds-heading-size-3);
+  line-height: 1.12;
+}
+.rvds-prose :global(h4:not(.rvds-heading)) {
+  font-size: var(--rvds-heading-size-4);
+  line-height: 1.2;
+}
+.rvds-prose :global(h5:not(.rvds-heading)) {
+  font-size: var(--rvds-heading-size-5);
+  line-height: 1.25;
+}
+.rvds-prose :global(h6:not(.rvds-heading)) {
+  font-size: var(--rvds-heading-size-6);
+  line-height: 1.3;
+}
+.rvds-prose :global(p:not(.rvds-paragraph)) {
+  font-size: var(--rvds-font-size-md);
+  line-height: var(--rvds-line-height-body);
+  margin-block: 0 var(--rvds-content-flow-space);
+}
+.rvds-prose :global(:where(ul, ol):not(.rvds-bulleted-list):not(.rvds-numbered-list)) {
+  margin-block: var(--rvds-list-flow-space);
+  padding-inline-start: var(--rvds-list-indent);
+}
+.rvds-prose :global(ul:not(.rvds-bulleted-list)) {
+  list-style: none;
+}
+.rvds-prose :global(ul:not(.rvds-bulleted-list) > li) {
+  position: relative;
+}
+.rvds-prose :global(ul:not(.rvds-bulleted-list) > li::before) {
+  background: var(--rvds-color-accent);
+  block-size: 0.125rem;
+  content: '';
+  inline-size: 0.65rem;
+  inset-block-start: 0.75em;
+  inset-inline-start: calc(-1 * var(--rvds-list-marker-width));
+  position: absolute;
+}
+.rvds-prose :global(ol:not(.rvds-numbered-list) > li::marker) {
+  color: var(--rvds-color-accent);
+  font-variant-numeric: tabular-nums;
+}
+.rvds-prose :global(:where(ul, ol) > li + li) {
+  margin-block-start: var(--rvds-list-item-space);
+}
+.rvds-prose :global(:where(ul, ol) :where(ul, ol)) {
+  margin-block: var(--rvds-list-nested-space);
+}
+.rvds-prose :global(blockquote:not(.rvds-quote__body)) {
+  border-inline-start: var(--rvds-quote-border-width) solid var(--rvds-color-accent);
+  font-size: var(--rvds-font-size-lead);
+  font-style: italic;
+  margin: var(--rvds-space-6) 0;
+  padding-inline-start: var(--rvds-space-5);
+}
+.rvds-prose :global(pre:not(.rvds-code-block__pre)) {
+  background: var(--rvds-color-surface);
+  border: var(--rvds-border-width) solid var(--rvds-color-border);
+  border-radius: var(--rvds-radius-xs);
+  max-inline-size: 100%;
+  overflow-x: auto;
+  padding: var(--rvds-space-4);
+}
+.rvds-prose :global(code:not(.rvds-code-block__code)) {
+  font-family: var(--rvds-font-family-code);
+  font-size: var(--rvds-font-size-sm);
+}
+.rvds-prose :global(:where(img, video, iframe)) {
+  max-inline-size: 100%;
+}
+.rvds-prose :global(figure:not([class^='rvds-'])) {
+  margin-block: var(--rvds-space-6);
+  margin-inline: 0;
+  max-inline-size: 100%;
+}
+.rvds-prose :global(figure:not([class^='rvds-']) > img) {
+  block-size: auto;
+  display: block;
+  inline-size: 100%;
+}
+.rvds-prose :global(figure:not([class^='rvds-']) > figcaption) {
+  border-inline-start: var(--rvds-border-width) solid var(--rvds-color-border);
+  color: var(--rvds-color-text-muted);
+  font-size: var(--rvds-font-size-xs);
+  line-height: var(--rvds-line-height-body);
+  margin-block-start: var(--rvds-space-2);
+  padding-inline-start: var(--rvds-space-3);
+  text-align: center;
+}
+.rvds-prose :global(.rvds-prose__credit) {
+  text-align: end;
+}
+.rvds-prose :global(:where(time, small)) {
+  color: var(--rvds-color-text-muted);
+}

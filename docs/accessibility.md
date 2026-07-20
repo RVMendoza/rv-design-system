@@ -23,8 +23,9 @@ Repository-wide implementation rules for humans and AI agents live in [`AGENTS.m
 - `Link`: Tab focuses; Enter follows the destination.
 - `SkipLink`: first focusable element; becomes visible on focus and moves focus toward main content.
 - `YoutubeEmbed`: the privacy-enhanced iframe loads lazily near the viewport; its required title identifies the player, and native Youtube controls provide keyboard interaction.
+- `InstagramEmbed` and `TiktokEmbed`: each lazy provider iframe has a required accessible title and a separate, clearly named outbound fallback link. Provider content may set its own keyboard behavior.
 - `BulletedList` and `NumberedList`: native list semantics are preserved through arbitrary mixed nesting; dash markers are decorative CSS.
-- `Image`, `Gallery`, and `VideoEmbed`: alternative text, labels, captions, and caption tracks remain the content author's responsibility and are exposed through required or documented props.
+- `Image`, `Gallery`, and `VideoEmbed`: alternative text, labels, captions, credits, and caption tracks remain the content author's responsibility and are exposed through required or documented props.
 
 ## Required review before release
 

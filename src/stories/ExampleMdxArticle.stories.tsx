@@ -29,13 +29,13 @@ Ordinary paragraphs, [text links](https://example.com), and lists remain Markdow
   2. Keep provider metadata explicit.
 
 <InstagramEmbed
-  description="Open this post on Instagram without loading provider scripts here."
+  description="View the complete Instagram post in the embedded player."
   title="Instagram post"
   url="https://www.instagram.com/p/DESbLWOuM95/"
 />
 
 <TiktokEmbed
-  description="Open this video on Tiktok without loading provider scripts here."
+  description="View the complete Tiktok video in the embedded player."
   title="Tiktok video"
   url="https://www.tiktok.com/@rvxmendoza/video/7368864505985617195"
 />
@@ -77,12 +77,12 @@ function MdxArticleExample() {
             </li>
           </BulletedList>
           <InstagramEmbed
-            description="Open this post on Instagram without loading provider scripts here."
+            description="View the complete Instagram post in the embedded player."
             title="Instagram post"
             url="https://www.instagram.com/p/DESbLWOuM95/"
           />
           <TiktokEmbed
-            description="Open this video on Tiktok without loading provider scripts here."
+            description="View the complete Tiktok video in the embedded player."
             title="Tiktok video"
             url="https://www.tiktok.com/@rvxmendoza/video/7368864505985617195"
           />
