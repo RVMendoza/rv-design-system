@@ -16,6 +16,15 @@ describe('Prose', () => {
           <img alt="A credited photograph" src="/photograph.jpg" />
           <figcaption className="rvds-prose__credit">Photo: Example Photographer</figcaption>
         </figure>
+        <figure className="rvds-prose__figure">
+          <img alt="An economic impact chart" src="/chart.jpg" />
+          <figcaption className="rvds-prose__media-caption rvds-prose__media-caption--with-credit">
+            <span className="rvds-prose__caption-text">A centered chart explanation.</span>
+            <span className="rvds-prose__credit">
+              <a href="https://example.com">Source</a>
+            </span>
+          </figcaption>
+        </figure>
       </Prose>,
     );
 
@@ -24,6 +33,7 @@ describe('Prose', () => {
     expect(screen.getByRole('heading', { name: 'A native heading' })).toBeInTheDocument();
     expect(screen.getByText('A centered explanation.').closest('figure')).not.toBeNull();
     expect(screen.getByText('Photo: Example Photographer')).toHaveClass('rvds-prose__credit');
+    expect(screen.getByText('Source').closest('.rvds-prose__credit')).not.toBeNull();
   });
 
   it('supports a wide measure without changing semantics', () => {
