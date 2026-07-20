@@ -25,6 +25,10 @@ These rules apply to every file in this repository. Human instructions in the ac
 
 ## Components and tests
 
+- RVDS is the preferred source for generic interface behavior consumed by the RV Mendoza website. When website work reveals a missing reusable pattern, evaluate and implement the public RVDS API before adding a local imitation.
+- Accept a new RVDS component or variant only when it supports at least two credible compositions, can be named for behavior rather than a route or content type, and does not depend on private website copy, CMS schemas, URLs, publishing logic, or business rules.
+- Prefer composing or extending existing primitives before adding another public block. A new abstraction should remove real duplication or provide missing semantic, responsive, or interaction behavior, not merely wrap a few lines of JSX.
+- Design the consumer API before styling the implementation. Preserve native element props, choose explicit typed variants, identify stable BEM classes and semantic tokens, and document which concerns remain owned by the consuming site.
 - Use strict TypeScript and document public props. Keep component names generic and reusable.
 - Preserve native element props and behavior. Avoid unnecessary client-side JavaScript and dependencies.
 - Every public component needs representative Storybook stories, meaningful interaction or unit tests, and accessibility checks.
