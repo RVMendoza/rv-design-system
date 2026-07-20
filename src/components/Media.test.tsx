@@ -60,6 +60,25 @@ describe('blog media', () => {
     expect(container.querySelector('figure')).toBeNull();
   });
 
+  it('supports a reusable top-end caption overlay modifier', () => {
+    const { container } = render(
+      <Image
+        alt="A chart"
+        caption="A concise explanation."
+        captionPlacement="overlay-top-end"
+        credit={{ name: 'Source', href: 'https://example.com' }}
+        src="/chart.png"
+      />,
+    );
+    expect(container.querySelector('figure')).toHaveClass(
+      'rvds-image-figure--caption-overlay-top-end',
+    );
+    expect(screen.getByRole('link', { name: 'Source' })).toHaveAttribute(
+      'href',
+      'https://example.com',
+    );
+  });
+
   it('renders a labeled gallery as a semantic list', () => {
     render(
       <Gallery

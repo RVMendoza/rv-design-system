@@ -36,6 +36,7 @@ export const LongCaptionAndCredit: Story = {
       alt="Abstract landscape placeholder"
       aspectRatio="wide"
       caption="A longer caption can explain what the image contributes without competing with a concise photo credit aligned at the edge."
+      captionPlacement="overlay-top-end"
       credit={{ name: 'Example Photographer' }}
       height={500}
       src={placeholder}

@@ -60,6 +60,7 @@
   display: block;
   inline-size: min(100%, 9rem);
   object-fit: contain;
+  transform: scale(var(--rvds-brand-logo-scale, 1));
 }
 
 .rvds-brand-logo__fallback {

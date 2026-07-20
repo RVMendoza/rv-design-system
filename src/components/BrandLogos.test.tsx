@@ -7,7 +7,12 @@ describe('brand logos', () => {
     const { container } = render(
       <BrandLogoList aria-label="Brands RV has worked with">
         <li>
-          <BrandLogo name="Example Brand" href="https://example.com" logo={{ src: '/brand.svg' }} />
+          <BrandLogo
+            name="Example Brand"
+            href="https://example.com"
+            logo={{ src: '/brand.svg' }}
+            logoScale={1.4}
+          />
         </li>
       </BrandLogoList>,
     );
@@ -19,6 +24,9 @@ describe('brand logos', () => {
     );
     expect(container.querySelector('.rvds-brand-logo-list')).not.toBeNull();
     expect(container.querySelector('.rvds-brand-logo__image')).toHaveAttribute('alt', '');
+    expect(container.querySelector('.rvds-brand-logo__image')).toHaveStyle({
+      '--rvds-brand-logo-scale': '1.4',
+    });
   });
 
   it('shows a stable text fallback when no artwork is available', () => {

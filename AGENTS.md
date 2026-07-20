@@ -31,6 +31,7 @@ These rules apply to every file in this repository. Human instructions in the ac
 - Design the consumer API before styling the implementation. Preserve native element props, choose explicit typed variants, identify stable BEM classes and semantic tokens, and document which concerns remain owned by the consuming site.
 - Use strict TypeScript and document public props. Keep component names generic and reusable.
 - Preserve native element props and behavior. Avoid unnecessary client-side JavaScript and dependencies.
+- Use the shared RVDS `Icon` component and canonical kebab-case names from the [Lucide icon catalog](https://lucide.dev/icons/) for interface and editorial symbols. Extend the shared component when icon behavior changes. Do not paste one-off SVGs into components or stories. Reserve `simple-icons` for company and social brand marks.
 - Every public component needs representative Storybook stories, meaningful interaction or unit tests, and accessibility checks.
 - When a consumer workaround reveals a missing RVDS capability, test the proposed API with at least two credible compositions before making it public. Cover long labels, narrow viewports, 200% zoom, keyboard focus, and interaction states.
 - Run `pnpm format` after editing supported source files, then run `pnpm check` with Node.js 22 or newer before handoff. Add regression coverage for public classes, tokens, semantics, and keyboard behavior.

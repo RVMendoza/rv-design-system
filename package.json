@@ -69,6 +69,7 @@
     "node": ">=22"
   },
   "dependencies": {
+    "lucide-react": "^1.25.0",
     "simple-icons": "^16.26.0"
   }
 }

@@ -1,10 +1,12 @@
-import type { HTMLAttributes, ImgHTMLAttributes, ReactNode } from 'react';
+import type { CSSProperties, HTMLAttributes, ImgHTMLAttributes, ReactNode } from 'react';
 import styles from './BrandLogos.module.css';
 
 export interface BrandLogoProps extends HTMLAttributes<HTMLElement> {
   name: string;
   logo?: Pick<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'width' | 'height'>;
   href?: string;
+  /** Optical size correction for artwork with excess transparent space. */
+  logoScale?: number;
 }
 
 /** A collaborator identity with an accessible text fallback and optional link. */
@@ -12,6 +14,7 @@ export function BrandLogo({
   name,
   logo,
   href,
+  logoScale = 1,
   className = '',
   title = name,
   ...props
@@ -19,7 +22,13 @@ export function BrandLogo({
   const content = (
     <>
       {logo ? (
-        <img className={styles['rvds-brand-logo__image']} alt="" loading="lazy" {...logo} />
+        <img
+          className={styles['rvds-brand-logo__image']}
+          alt=""
+          loading="lazy"
+          style={{ '--rvds-brand-logo-scale': logoScale } as CSSProperties}
+          {...logo}
+        />
       ) : (
         <span className={styles['rvds-brand-logo__fallback']} aria-hidden="true">
           {name}

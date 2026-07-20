@@ -1,6 +1,7 @@
 import type { HTMLAttributes, ImgHTMLAttributes, OlHTMLAttributes, ReactNode } from 'react';
 import { Link } from './Link';
 import { Heading, Paragraph } from './Typography';
+import { Icon } from './Icon';
 import styles from './Articles.module.css';
 
 export interface ArticleListProps extends OlHTMLAttributes<HTMLOListElement> {
@@ -48,6 +49,8 @@ export interface ArticlePreviewProps extends Omit<HTMLAttributes<HTMLElement>, '
   /** Short contextual label displayed before the title. */
   eyebrow?: ReactNode;
   image?: ArticlePreviewImage;
+  /** Decorative marker. Invalid runtime values safely use the default spark. */
+  markerIcon?: string;
   headingLevel?: 2 | 3 | 4 | 5 | 6;
 }
 
@@ -58,6 +61,7 @@ export function ArticlePreview({
   description,
   eyebrow,
   image,
+  markerIcon = 'sparkles',
   headingLevel = 2,
   className = '',
   ...props
@@ -74,6 +78,15 @@ export function ArticlePreview({
       {...props}
     >
       <a className={styles['rvds-article-preview__link']} href={href}>
+        <span
+          className={[
+            styles['rvds-article-preview__marker'],
+            styles['rvds-article-preview__marker--icon'],
+          ].join(' ')}
+          aria-hidden="true"
+        >
+          <Icon name={markerIcon} />
+        </span>
         {image && (
           <span className={styles['rvds-article-preview__media']}>
             <img className={styles['rvds-article-preview__image']} loading="lazy" {...image} />

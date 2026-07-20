@@ -10,6 +10,8 @@ export {
   type ClusterProps,
 } from './components/Layout';
 export { Card, type CardProps } from './components/Card';
+export { Icon, type IconProps } from './components/Icon';
+export { resolveIconName, type IconName } from './components/IconNames';
 export {
   BrandLogo,
   BrandLogoList,
@@ -57,6 +59,7 @@ export {
   type ImageProps,
   type ImageCredit,
   type ImageAspectRatio,
+  type ImageCaptionPlacement,
   type ImageFit,
   type GalleryItem,
   type GalleryProps,

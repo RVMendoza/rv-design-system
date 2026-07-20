@@ -142,6 +142,7 @@ export const CompactGrid: Story = {
         <li>
           <ArticlePreview
             eyebrow="Culture"
+            markerIcon="diamond"
             href="#second"
             title="A deliberately long title that wraps across several lines without crowding the card"
             description="The full description remains in the document while the compact visual treatment limits it to three lines."
@@ -150,9 +151,10 @@ export const CompactGrid: Story = {
         <li>
           <ArticlePreview
             eyebrow="Life"
+            markerIcon="asterisk"
             href="#third"
             title="A smaller card can still carry personality"
-            description="Images and decorative numbers remain part of the editorial overview."
+            description="Images and decorative markers remain part of the editorial overview."
             image={{
               src: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80',
               alt: 'A notebook and laptop arranged on a wooden desk.',

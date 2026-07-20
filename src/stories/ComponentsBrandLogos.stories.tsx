@@ -18,7 +18,12 @@ export const Collaborators: Story = {
           <BrandLogo name="Instagram" href="#instagram" logo={{ src: '/favicon.svg' }} />
         </li>
         <li>
-          <BrandLogo name="Microsoft" href="#microsoft" logo={{ src: '/favicon.svg' }} />
+          <BrandLogo
+            name="Microsoft"
+            href="#microsoft"
+            logo={{ src: '/favicon.svg' }}
+            logoScale={1.5}
+          />
         </li>
         <li>
           <BrandLogo name="A collaborator with a long name" href="#long" />

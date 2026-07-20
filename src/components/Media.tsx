@@ -16,6 +16,7 @@ export interface ImageCredit {
 
 export type ImageAspectRatio = 'natural' | 'square' | 'portrait' | 'landscape' | 'wide';
 export type ImageFit = 'cover' | 'contain';
+export type ImageCaptionPlacement = 'below' | 'overlay-top-end';
 
 export interface ImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'alt'> {
   /** Required. Use an empty string only when the image is decorative. */
@@ -24,6 +25,8 @@ export interface ImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'a
   caption?: ReactNode;
   /** Authorship or source information. Credits are aligned to the inline end. */
   credit?: ImageCredit;
+  /** Places metadata below the image or in a high-contrast panel at its top inline end. */
+  captionPlacement?: ImageCaptionPlacement;
   aspectRatio?: ImageAspectRatio;
   fit?: ImageFit;
   /** CSS object-position used when an aspect ratio crops the image. */
@@ -34,6 +37,7 @@ export function Image({
   alt,
   caption,
   credit,
+  captionPlacement = 'below',
   aspectRatio = 'natural',
   fit = 'cover',
   position,
@@ -64,7 +68,12 @@ export function Image({
   );
   if (!caption && !credit) return image;
   return (
-    <figure className={styles['rvds-image-figure']}>
+    <figure
+      className={[
+        styles['rvds-image-figure'],
+        styles[`rvds-image-figure--caption-${captionPlacement}`],
+      ].join(' ')}
+    >
       {image}
       <figcaption
         className={[
