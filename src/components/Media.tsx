@@ -17,6 +17,7 @@ export interface ImageCredit {
 export type ImageAspectRatio = 'natural' | 'square' | 'portrait' | 'landscape' | 'wide';
 export type ImageFit = 'cover' | 'contain';
 export type ImageCaptionPlacement = 'below' | 'overlay-top-end';
+export type ImageCreditPlacement = 'below' | 'overlay-top-end';
 
 export interface ImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'alt'> {
   /** Required. Use an empty string only when the image is decorative. */
@@ -27,6 +28,8 @@ export interface ImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'a
   credit?: ImageCredit;
   /** Places metadata below the image or in a high-contrast panel at its top inline end. */
   captionPlacement?: ImageCaptionPlacement;
+  /** Keeps the caption below while placing a compact credit at the image's top inline end. */
+  creditPlacement?: ImageCreditPlacement;
   aspectRatio?: ImageAspectRatio;
   fit?: ImageFit;
   /** CSS object-position used when an aspect ratio crops the image. */
@@ -38,6 +41,7 @@ export function Image({
   caption,
   credit,
   captionPlacement = 'below',
+  creditPlacement = 'below',
   aspectRatio = 'natural',
   fit = 'cover',
   position,
@@ -72,6 +76,7 @@ export function Image({
       className={[
         styles['rvds-image-figure'],
         styles[`rvds-image-figure--caption-${captionPlacement}`],
+        styles[`rvds-image-figure--credit-${creditPlacement}`],
       ].join(' ')}
     >
       {image}
@@ -79,6 +84,7 @@ export function Image({
         className={[
           styles['rvds-image-figure__caption'],
           caption && credit ? styles['rvds-image-figure__caption--with-credit'] : '',
+          !caption && credit ? styles['rvds-image-figure__caption--credit-only'] : '',
         ]
           .filter(Boolean)
           .join(' ')}
@@ -86,8 +92,8 @@ export function Image({
         {caption && <span className={styles['rvds-image-figure__description']}>{caption}</span>}
         {credit && (
           <span className={styles['rvds-image-figure__credit']}>
-            Photo: {credit.href ? <a href={credit.href}>{credit.name}</a> : credit.name}
-            {credit.source && (
+            {credit.href ? <a href={credit.href}>{credit.name}</a> : credit.name}
+            {creditPlacement === 'below' && credit.source && (
               <>
                 {' via '}
                 {credit.sourceHref ? (

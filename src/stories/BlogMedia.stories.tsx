@@ -36,12 +36,48 @@ export const LongCaptionAndCredit: Story = {
       alt="Abstract landscape placeholder"
       aspectRatio="wide"
       caption="A longer caption can explain what the image contributes without competing with a concise photo credit aligned at the edge."
-      captionPlacement="overlay-top-end"
-      credit={{ name: 'Example Photographer' }}
+      credit={{ name: 'Source' }}
+      creditPlacement="overlay-top-end"
       height={500}
       src={placeholder}
       width={800}
     />
+  ),
+};
+export const CaptionAndCreditStates: Story = {
+  render: () => (
+    <>
+      <Image
+        alt="Caption-only abstract landscape placeholder"
+        caption="Caption only, centered below the image."
+        height={500}
+        src={placeholder}
+        width={800}
+      />
+      <Image
+        alt="Credit-only abstract landscape placeholder"
+        credit={{ name: 'Source', href: 'https://example.com' }}
+        creditPlacement="overlay-top-end"
+        height={500}
+        src={placeholder}
+        width={800}
+      />
+      <Image
+        alt="Captioned and credited abstract landscape placeholder"
+        caption="A longer caption remains below the image and wraps independently of its credit."
+        credit={{ name: 'Source', href: 'https://example.com' }}
+        creditPlacement="overlay-top-end"
+        height={500}
+        src={placeholder}
+        width={800}
+      />
+      <Image
+        alt="Uncaptioned abstract landscape placeholder"
+        height={500}
+        src={placeholder}
+        width={800}
+      />
+    </>
   ),
 };
 export const ImageGallery: Story = {

@@ -60,6 +60,7 @@ export {
   type ImageCredit,
   type ImageAspectRatio,
   type ImageCaptionPlacement,
+  type ImageCreditPlacement,
   type ImageFit,
   type GalleryItem,
   type GalleryProps,

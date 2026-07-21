@@ -79,6 +79,51 @@ describe('blog media', () => {
     );
   });
 
+  it('keeps the caption below while placing a compact credit at the top end', () => {
+    const { container } = render(
+      <Image
+        alt="A chart"
+        caption="A concise explanation."
+        credit={{ name: 'Source', href: 'https://example.com' }}
+        creditPlacement="overlay-top-end"
+        src="/chart.png"
+      />,
+    );
+    expect(container.querySelector('figure')).toHaveClass(
+      'rvds-image-figure--caption-below',
+      'rvds-image-figure--credit-overlay-top-end',
+    );
+    expect(screen.getByText('A concise explanation.')).toHaveClass(
+      'rvds-image-figure__description',
+    );
+    expect(screen.getByRole('link', { name: 'Source' })).toHaveAttribute(
+      'href',
+      'https://example.com',
+    );
+    expect(container).not.toHaveTextContent('Photo:');
+  });
+
+  it('supports a compact credit without reserving caption space', () => {
+    const { container } = render(
+      <Image
+        alt="A credited photograph"
+        credit={{ name: 'Source', href: 'https://example.com' }}
+        creditPlacement="overlay-top-end"
+        src="/photograph.jpg"
+      />,
+    );
+    expect(container.querySelector('figure')).toHaveClass(
+      'rvds-image-figure--credit-overlay-top-end',
+    );
+    expect(container.querySelector('figcaption')).toHaveClass(
+      'rvds-image-figure__caption--credit-only',
+    );
+    expect(screen.getByRole('link', { name: 'Source' })).toHaveAttribute(
+      'href',
+      'https://example.com',
+    );
+  });
+
   it('renders a labeled gallery as a semantic list', () => {
     render(
       <Gallery
