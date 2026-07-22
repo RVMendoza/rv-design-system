@@ -69,6 +69,9 @@ for (const mapping of [
 if (/Georgia|Times New Roman|(?:^|[,\s])serif(?:[,;\s]|$)/i.test(css)) {
   throw new Error('Compiled CSS contains a forbidden serif font declaration.');
 }
+if (/\.rvds-article-preview__marker svg\{[^}]*drop-shadow/i.test(css)) {
+  throw new Error('Compiled article markers must not restore jagged stacked SVG shadows.');
+}
 
 for (const exportName of ['YoutubeEmbed', 'YoutubeEmbedProps', 'TiktokEmbed']) {
   if (!declarations.includes(exportName))

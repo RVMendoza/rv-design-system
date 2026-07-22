@@ -39,6 +39,9 @@ describe('article components', () => {
     expect(container.querySelector('.rvds-article-preview')).not.toBeNull();
     expect(container.querySelector('.rvds-article-preview__image')).not.toBeNull();
     expect(container.querySelector('.rvds-article-preview__marker--icon')).not.toBeNull();
+    expect(
+      container.querySelector('.rvds-article-preview__content > .rvds-article-preview__marker'),
+    ).not.toBeNull();
     expect(container.querySelector('.rvds-article-preview__marker svg')).toHaveAttribute(
       'aria-hidden',
       'true',
@@ -101,6 +104,21 @@ describe('article components', () => {
     expect(
       screen.getByText('The complete authored description remains in the document.'),
     ).toBeInTheDocument();
+  });
+
+  it('renders flush row alignment without changing list semantics', () => {
+    const { container } = render(
+      <ArticleList contentAlignment="flush" aria-label="Aligned writing">
+        <li>
+          <ArticlePreview href="/writing/aligned/" title="An edge-aligned article" />
+        </li>
+      </ArticleList>,
+    );
+
+    expect(screen.getByRole('list', { name: 'Aligned writing' }).tagName).toBe('OL');
+    expect(container.querySelector('ol > li > article')).not.toBeNull();
+    expect(container.querySelector('.rvds-article-list--rows')).not.toBeNull();
+    expect(container.querySelector('.rvds-article-list--flush')).not.toBeNull();
   });
 
   it('renders an article heading and labeled collection navigation', () => {

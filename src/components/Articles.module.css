@@ -39,23 +39,31 @@
     color var(--rvds-motion-fast) var(--rvds-ease-standard);
 }
 
+.rvds-article-list--rows.rvds-article-list--flush .rvds-article-preview__link {
+  padding-inline-start: 0;
+}
+
 .rvds-article-preview__marker {
   align-items: center;
   color: var(--rvds-color-accent);
   display: inline-flex;
-  grid-column: 1 / -1;
-  inline-size: var(--rvds-space-6);
+  gap: var(--rvds-space-2);
+  inline-size: fit-content;
   justify-content: center;
-  margin-block-end: var(--rvds-space-4);
+  margin-block-end: var(--rvds-space-2);
+}
+
+.rvds-article-preview__marker::after {
+  background: currentColor;
+  block-size: var(--rvds-border-width);
+  content: '';
+  inline-size: var(--rvds-space-6);
+  opacity: 0.6;
 }
 
 .rvds-article-preview__marker svg {
   block-size: var(--rvds-space-5);
   fill: none;
-  filter: drop-shadow(2px 0 0 var(--rvds-color-background))
-    drop-shadow(-2px 0 0 var(--rvds-color-background))
-    drop-shadow(0 2px 0 var(--rvds-color-background))
-    drop-shadow(0 -2px 0 var(--rvds-color-background));
   inline-size: var(--rvds-space-5);
   overflow: visible;
   stroke: currentColor;
@@ -160,24 +168,6 @@
   position: relative;
 }
 
-.rvds-article-list--grid .rvds-article-preview__marker {
-  inset-block-start: var(--rvds-space-4);
-  inset-inline-start: var(--rvds-space-4);
-  margin: 0;
-  padding: var(--rvds-space-2);
-  position: absolute;
-  z-index: 1;
-}
-
-.rvds-article-list--grid .rvds-article-preview--text-only .rvds-article-preview__marker {
-  grid-column: 1;
-  inset: auto;
-  justify-self: start;
-  margin: var(--rvds-space-5) var(--rvds-space-5) 0;
-  padding: 0;
-  position: static;
-}
-
 .rvds-article-list--grid .rvds-article-preview__media {
   grid-column: 1 / -1;
 }
@@ -195,7 +185,7 @@
 }
 
 .rvds-article-list--grid .rvds-article-preview--text-only .rvds-article-preview__content {
-  padding-block-start: var(--rvds-space-4);
+  padding-block-start: var(--rvds-space-5);
 }
 
 .rvds-article-header {
@@ -247,19 +237,6 @@
 .rvds-article-list--compact.rvds-article-list--grid {
   gap: var(--rvds-space-4);
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 14.5rem), 1fr));
-}
-
-.rvds-article-list--compact.rvds-article-list--grid .rvds-article-preview__marker {
-  inset-block-start: var(--rvds-space-3);
-  inset-inline-start: var(--rvds-space-3);
-  padding: var(--rvds-space-1);
-}
-
-.rvds-article-list--compact.rvds-article-list--grid
-  .rvds-article-preview--text-only
-  .rvds-article-preview__marker {
-  margin: var(--rvds-space-4) var(--rvds-space-4) 0;
-  padding: 0;
 }
 
 .rvds-article-list--compact.rvds-article-list--grid .rvds-article-preview__image {

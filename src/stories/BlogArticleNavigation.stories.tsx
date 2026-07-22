@@ -61,7 +61,7 @@ export const ArticleCollection: Story = {
             Long-form ideas organized for comfortable reading and quick scanning.
           </Paragraph>
         </div>
-        <ArticleList aria-label="Example articles">
+        <ArticleList contentAlignment="flush" aria-label="Example articles">
           <li>
             <ArticlePreview
               href="#first"
@@ -129,6 +129,7 @@ export const CompactGrid: Story = {
           <ArticlePreview
             eyebrow="Creator strategy"
             href="#first"
+            markerIcon="brain-circuit"
             title="A useful idea with a clear point of view"
             description="A concise summary gives the reader enough context to choose what to read without making the overview feel dense."
             image={{
@@ -151,7 +152,7 @@ export const CompactGrid: Story = {
         <li>
           <ArticlePreview
             eyebrow="Life"
-            markerIcon="asterisk"
+            markerIcon="orbit"
             href="#third"
             title="A smaller card can still carry personality"
             description="Images and decorative markers remain part of the editorial overview."

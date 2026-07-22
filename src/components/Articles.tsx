@@ -10,6 +10,8 @@ export interface ArticleListProps extends OlHTMLAttributes<HTMLOListElement> {
   layout?: 'rows' | 'grid';
   /** Controls visual density without changing list or article semantics. */
   density?: 'comfortable' | 'compact';
+  /** Aligns row preview content with the collection edge or keeps the default editorial inset. */
+  contentAlignment?: 'inset' | 'flush';
 }
 
 /** An ordered collection of article previews. */
@@ -18,6 +20,7 @@ export function ArticleList({
   children,
   layout = 'rows',
   density = 'compact',
+  contentAlignment = 'inset',
   ...props
 }: ArticleListProps) {
   return (
@@ -26,6 +29,7 @@ export function ArticleList({
         styles['rvds-article-list'],
         styles[`rvds-article-list--${layout}`],
         styles[`rvds-article-list--${density}`],
+        styles[`rvds-article-list--${contentAlignment}`],
         className,
       ]
         .filter(Boolean)
@@ -78,21 +82,21 @@ export function ArticlePreview({
       {...props}
     >
       <a className={styles['rvds-article-preview__link']} href={href}>
-        <span
-          className={[
-            styles['rvds-article-preview__marker'],
-            styles['rvds-article-preview__marker--icon'],
-          ].join(' ')}
-          aria-hidden="true"
-        >
-          <Icon name={markerIcon} />
-        </span>
         {image && (
           <span className={styles['rvds-article-preview__media']}>
             <img className={styles['rvds-article-preview__image']} loading="lazy" {...image} />
           </span>
         )}
         <span className={styles['rvds-article-preview__content']}>
+          <span
+            className={[
+              styles['rvds-article-preview__marker'],
+              styles['rvds-article-preview__marker--icon'],
+            ].join(' ')}
+            aria-hidden="true"
+          >
+            <Icon name={markerIcon} />
+          </span>
           {eyebrow && <span className={styles['rvds-article-preview__eyebrow']}>{eyebrow}</span>}
           <Heading className={styles['rvds-article-preview__title']} level={headingLevel} size={3}>
             {title}

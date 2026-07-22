@@ -22,6 +22,16 @@ RVDS owns the document's dark canvas and Inter typography. Sunflower gold is use
 
 The package includes long-form `Paragraph`, `Heading`, `Quote`, `CodeBlock`, and `Divider` primitives; a `Prose` wrapper for native Markdown output; mixed `BulletedList` and `NumberedList` compositions; responsive `Image`, `Gallery`, and `VideoEmbed` media; and `YoutubeEmbed`, `InstagramEmbed`, `TiktokEmbed`, and `GenericEmbed` previews. `Image` supports reusable crops, focal positioning, centered captions below an image, and compact credits at its top inline edge. The shared `Icon` component accepts canonical kebab-case names from the Lucide catalog and safely falls back to `sparkles`. `ArticlePreview` uses that system for its optional decorative marker. Youtube uses its privacy-enhanced host. Instagram, Tiktok, and Youtube load responsive provider players lazily. Generic previews remain script-free outbound links.
 
+Article markers sit with the title block and use a short accent rule to connect
+the icon to the writing. Grid cards keep markers in the content area rather than
+placing them over photography, so every Lucide stroke stays crisp without a
+shadow, outline, badge, or backdrop.
+
+`ArticleList` keeps its editorial row inset by default. Use
+`contentAlignment="flush"` when a row collection should share an exact left edge
+with a nearby heading, introduction, or other container content. Grid cards keep
+their own internal spacing in either alignment mode.
+
 For an Astro Content Collections example, see the [Astro MDX usage guide](docs/astro-mdx-usage.md). Markdown parsing and component mapping belong to the consuming website. Wrap generated article output in `Prose` to apply the RVDS typography and media treatment without rewriting ordinary Markdown as JSX.
 
 ## Requirements
