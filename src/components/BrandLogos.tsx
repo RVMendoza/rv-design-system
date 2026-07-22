@@ -1,4 +1,10 @@
-import type { CSSProperties, HTMLAttributes, ImgHTMLAttributes, ReactNode } from 'react';
+import {
+  forwardRef,
+  type CSSProperties,
+  type HTMLAttributes,
+  type ImgHTMLAttributes,
+  type ReactNode,
+} from 'react';
 import styles from './BrandLogos.module.css';
 
 export interface BrandLogoProps extends HTMLAttributes<HTMLElement> {
@@ -66,13 +72,16 @@ export interface BrandLogoListProps extends HTMLAttributes<HTMLUListElement> {
 }
 
 /** A static, responsive collection of collaborator identities. */
-export function BrandLogoList({ children, className = '', ...props }: BrandLogoListProps) {
-  return (
-    <ul
-      className={[styles['rvds-brand-logo-list'], className].filter(Boolean).join(' ')}
-      {...props}
-    >
-      {children}
-    </ul>
-  );
-}
+export const BrandLogoList = forwardRef<HTMLUListElement, BrandLogoListProps>(
+  function BrandLogoList({ children, className = '', ...props }, ref) {
+    return (
+      <ul
+        className={[styles['rvds-brand-logo-list'], className].filter(Boolean).join(' ')}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </ul>
+    );
+  },
+);

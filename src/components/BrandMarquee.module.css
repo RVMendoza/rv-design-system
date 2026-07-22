@@ -1,0 +1,54 @@
+.rvds-brand-marquee {
+  inline-size: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.rvds-brand-marquee__track {
+  display: flex;
+  inline-size: max-content;
+  will-change: transform;
+}
+
+.rvds-brand-marquee__list.rvds-brand-logo-list {
+  display: flex;
+  flex: none;
+  gap: var(--rvds-space-3);
+  padding-inline-end: var(--rvds-space-3);
+}
+
+.rvds-brand-marquee--wide .rvds-brand-marquee__list.rvds-brand-logo-list {
+  gap: var(--rvds-space-7);
+  padding-inline-end: var(--rvds-space-7);
+}
+
+.rvds-brand-marquee__list.rvds-brand-logo-list > li {
+  inline-size: clamp(6.5rem, 10vw, 9rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rvds-brand-marquee {
+    overflow: visible;
+    touch-action: auto;
+  }
+
+  .rvds-brand-marquee__track {
+    display: block;
+    inline-size: 100%;
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .rvds-brand-marquee__list.rvds-brand-logo-list {
+    display: grid;
+    padding-inline-end: 0;
+  }
+
+  .rvds-brand-marquee__list.rvds-brand-logo-list > li {
+    inline-size: auto;
+  }
+
+  .rvds-brand-marquee__list[aria-hidden='true'] {
+    display: none;
+  }
+}

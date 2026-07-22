@@ -2,6 +2,14 @@
 
 Reusable, accessible React primitives for RV Mendoza projects. This public portfolio artifact is intentionally separate from private website copy and migrated content.
 
+`BrandMarquee` provides an infinitely wrapping collaborator rail. Automatic
+movement and direct pointer, touch, or horizontal-wheel input share one transform
+offset, so user interaction pauses rather than competes with the marquee. The
+single semantic logo list remains accessible, visual copies are inert, and
+reduced-motion users receive the static responsive collection.
+
+Use `spacing="wide"` when larger or optically full artwork needs more separation.
+
 Status: Milestone 2 foundation. The package is not published to npm.
 
 ## Public CSS contract

@@ -18,6 +18,7 @@ export {
   type BrandLogoProps,
   type BrandLogoListProps,
 } from './components/BrandLogos';
+export { BrandMarquee, type BrandMarqueeProps } from './components/BrandMarquee';
 export {
   ArticleHeader,
   ArticleList,
