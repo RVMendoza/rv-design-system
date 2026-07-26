@@ -1,0 +1,59 @@
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+import { FeatureSteps, MetricGrid, ProjectPreview, QuoteRail } from './CaseStudies';
+
+describe('case-study components', () => {
+  it('renders a brand-first linked project preview', () => {
+    render(
+      <ProjectPreview
+        brandName="Example"
+        href="/work/example/"
+        meta="Paid partnership · 2026"
+        outcome="Made a complex product useful"
+        roleLabel="Content creator"
+      />,
+    );
+    const link = screen.getByRole('link', { name: /Example.*Made a complex product useful/i });
+    expect(link).toHaveAttribute('href', '/work/example/');
+    expect(screen.getByText('View case study')).toBeVisible();
+  });
+
+  it('renders metrics as a definition list', () => {
+    const { container } = render(
+      <MetricGrid items={[{ label: 'Accounts reached', value: '130K+' }]} />,
+    );
+    expect(container.querySelector('dl')).not.toBeNull();
+    expect(screen.getByText('Accounts reached').tagName).toBe('DT');
+    expect(screen.getByText('130K+').tagName).toBe('DD');
+  });
+
+  it('renders ordered feature steps with resolved icons', () => {
+    render(
+      <FeatureSteps
+        items={[
+          {
+            description: 'A useful description.',
+            icon: 'target',
+            label: 'The brief',
+            title: 'Make the product useful',
+          },
+        ]}
+      />,
+    );
+    expect(screen.getByRole('list')).toBeVisible();
+    expect(screen.getByRole('heading', { name: 'Make the product useful' })).toBeVisible();
+    expect(screen.getByText('01')).toHaveAttribute('aria-hidden', 'true');
+  });
+
+  it('renders a keyboard-scrollable equal-card quote rail', () => {
+    render(
+      <QuoteRail
+        items={[{ attribution: '@reader', quote: 'This made the idea click.' }]}
+        label="Audience comments"
+      />,
+    );
+    const region = screen.getByRole('region', { name: 'Audience comments' });
+    expect(region).toHaveAttribute('tabindex', '0');
+    expect(screen.getByText('@reader')).toBeVisible();
+  });
+});

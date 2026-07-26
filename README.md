@@ -32,6 +32,17 @@ shadow, outline, badge, or backdrop.
 with a nearby heading, introduction, or other container content. Grid cards keep
 their own internal spacing in either alignment mode.
 
+## Case-study components
+
+`ProjectPreview` provides a brand-first, outcome-led portfolio card with a
+responsive supporting image and one clear detail-page action. `MetricGrid`
+renders verified figures as a semantic definition list. `FeatureSteps` presents
+an ordered brief or process summary with RVDS icons, and `QuoteRail` provides
+equal-size, keyboard-scrollable social-proof cards with optional slow movement
+that stops for interaction and reduced-motion preferences. Keep campaign
+content, editorial sequencing, and page-level section composition in the
+consuming site.
+
 For an Astro Content Collections example, see the [Astro MDX usage guide](docs/astro-mdx-usage.md). Markdown parsing and component mapping belong to the consuming website. Wrap generated article output in `Prose` to apply the RVDS typography and media treatment without rewriting ordinary Markdown as JSX.
 
 ## Requirements

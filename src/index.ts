@@ -78,3 +78,17 @@ export {
   type ProviderEmbedProps,
   type YoutubeEmbedProps,
 } from './components/Embeds';
+export {
+  ProjectPreview,
+  MetricGrid,
+  FeatureSteps,
+  QuoteRail,
+  type ProjectPreviewImage,
+  type ProjectPreviewProps,
+  type MetricItem,
+  type MetricGridProps,
+  type FeatureStep,
+  type FeatureStepsProps,
+  type QuoteRailItem,
+  type QuoteRailProps,
+} from './components/CaseStudies';
