@@ -32,3 +32,17 @@ export const Collaborators: Story = {
     ),
   },
 };
+
+export const Prominent: Story = {
+  args: {
+    children: (
+      <li>
+        <BrandLogo
+          name="Instagram"
+          logo={{ src: '/favicon.svg', width: 128, height: 128 }}
+          size="large"
+        />
+      </li>
+    ),
+  },
+};

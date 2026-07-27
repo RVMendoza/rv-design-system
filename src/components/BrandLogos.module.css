@@ -63,6 +63,21 @@
   transform: scale(var(--rvds-brand-logo-scale, 1));
 }
 
+.rvds-brand-logo--large .rvds-brand-logo__link,
+.rvds-brand-logo--large .rvds-brand-logo__content {
+  min-block-size: 6.5rem;
+  padding: 0;
+}
+
+.rvds-brand-logo--large .rvds-brand-logo__image {
+  block-size: 6rem;
+  inline-size: min(100%, 14rem);
+}
+
+.rvds-brand-logo--large .rvds-brand-logo__fallback {
+  font-size: var(--rvds-font-size-lg);
+}
+
 .rvds-brand-logo__fallback {
   color: var(--rvds-color-text);
   font-size: var(--rvds-font-size-sm);

@@ -39,4 +39,12 @@ describe('brand logos', () => {
     expect(container.querySelector('.rvds-brand-logo')).toHaveAttribute('title', 'Text Brand');
     expect(container.querySelector('img')).toBeNull();
   });
+
+  it('supports a prominent logo treatment', () => {
+    const { container } = render(
+      <BrandLogo name="Example" logo={{ src: '/example.svg' }} size="large" />,
+    );
+
+    expect(container.querySelector('.rvds-brand-logo--large')).not.toBeNull();
+  });
 });

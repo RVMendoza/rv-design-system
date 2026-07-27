@@ -23,7 +23,7 @@ export const Project: Story = {
       height: 96,
     },
     href: '#project',
-    meta: 'Paid partnership · 2026',
+    meta: 'Paid partnership · Q2 2026',
     roleLabel: 'Content creator + speaker',
     outcome: 'Made a creator tool useful through a real workflow.',
     image: {

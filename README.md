@@ -20,7 +20,7 @@ RVDS owns the document's dark canvas and Inter typography. Sunflower gold is use
 
 ## Blog components
 
-The package includes long-form `Paragraph`, `Heading`, `Quote`, `CodeBlock`, and `Divider` primitives; a `Prose` wrapper for native Markdown output; mixed `BulletedList` and `NumberedList` compositions; responsive `Image`, `Gallery`, and `VideoEmbed` media; and `YoutubeEmbed`, `InstagramEmbed`, `TiktokEmbed`, and `GenericEmbed` previews. `Image` supports reusable crops, focal positioning, centered captions below an image, and compact credits at its top inline edge. The shared `Icon` component accepts canonical kebab-case names from the Lucide catalog and safely falls back to `sparkles`. `ArticlePreview` uses that system for its optional decorative marker. Youtube uses its privacy-enhanced host. Instagram, Tiktok, and Youtube load responsive provider players lazily. Generic previews remain script-free outbound links.
+The package includes long-form `Paragraph`, `Heading`, `Quote`, `CodeBlock`, and `Divider` primitives; a `Prose` wrapper for native Markdown output; mixed `BulletedList` and `NumberedList` compositions; responsive `Image`, `Gallery`, and `VideoEmbed` media; and `YoutubeEmbed`, `InstagramEmbed`, `TiktokEmbed`, and `GenericEmbed` previews. `Image` supports reusable crops, focal positioning, centered captions below an image, and compact credits at its top inline edge. The shared `Icon` component accepts canonical kebab-case names from the Lucide catalog and safely falls back to `sparkles`. `ArticlePreview` uses that system for its optional decorative marker. Youtube uses its privacy-enhanced host. Instagram, Tiktok, and Youtube load responsive provider players lazily. Generic previews remain script-free outbound links and support a compact density with an optional hidden raw URL. Compact previews preserve portrait thumbnails in a narrow media column instead of cropping them into a landscape frame.
 
 Article markers sit with the title block and use a short accent rule to connect
 the icon to the writing. Grid cards keep markers in the content area rather than
@@ -35,7 +35,14 @@ their own internal spacing in either alignment mode.
 ## Case-study components
 
 `ProjectPreview` provides a brand-first, outcome-led portfolio card with a
-responsive supporting image and one clear detail-page action. `MetricGrid`
+prominent logo, responsive supporting image, calm outcome typography, and one
+clear detail-page action kept directly with the outcome text. The compact
+horizontal composition stays useful in dense grids and on narrow screens.
+Supporting media uses orientation-aware mobile frames so portrait and landscape
+assets remain legible without cropping or becoming the primary identity cue.
+The balanced row layout begins at 32rem so intermediate widths do not develop a
+large dead zone between copy and artwork.
+`MetricGrid`
 renders verified figures as a semantic definition list. `FeatureSteps` presents
 an ordered brief or process summary with RVDS icons, and `QuoteRail` provides
 equal-size, keyboard-scrollable social-proof cards with optional slow movement

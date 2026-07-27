@@ -8,6 +8,8 @@ export interface GenericEmbedProps {
   provider?: string;
   thumbnail?: string;
   thumbnailAlt?: string;
+  density?: 'default' | 'compact';
+  showUrl?: boolean;
   className?: string;
 }
 
@@ -25,12 +27,20 @@ export function GenericEmbed({
   provider,
   thumbnail,
   thumbnailAlt = '',
+  density = 'default',
+  showUrl = true,
   className = '',
 }: GenericEmbedProps) {
   const href = safeExternalUrl(url);
   return (
     <a
-      className={[styles['rvds-generic-embed'], className].filter(Boolean).join(' ')}
+      className={[
+        styles['rvds-generic-embed'],
+        density === 'compact' ? styles['rvds-generic-embed--compact'] : '',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
       href={href}
       rel="noopener noreferrer"
       target="_blank"
@@ -49,7 +59,7 @@ export function GenericEmbed({
         {description && (
           <span className={styles['rvds-generic-embed__description']}>{description}</span>
         )}
-        <span className={styles['rvds-generic-embed__url']}>{url}</span>
+        {showUrl && <span className={styles['rvds-generic-embed__url']}>{url}</span>}
       </span>
     </a>
   );

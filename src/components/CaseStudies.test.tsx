@@ -8,7 +8,7 @@ describe('case-study components', () => {
       <ProjectPreview
         brandName="Example"
         href="/work/example/"
-        meta="Paid partnership · 2026"
+        meta="Paid partnership · Q2 2026"
         outcome="Made a complex product useful"
         roleLabel="Content creator"
       />,
@@ -16,6 +16,23 @@ describe('case-study components', () => {
     const link = screen.getByRole('link', { name: /Example.*Made a complex product useful/i });
     expect(link).toHaveAttribute('href', '/work/example/');
     expect(screen.getByText('View case study')).toBeVisible();
+  });
+
+  it('uses an orientation-aware frame for supporting campaign media', () => {
+    const { container } = render(
+      <ProjectPreview
+        brandName="Example"
+        href="/work/example/"
+        image={{
+          alt: 'A creator holds a product in a vertical campaign frame.',
+          height: 1200,
+          src: '/portrait.jpg',
+          width: 800,
+        }}
+        outcome="Made the product part of the story"
+      />,
+    );
+    expect(container.querySelector('.rvds-project-preview__media--portrait')).not.toBeNull();
   });
 
   it('renders metrics as a definition list', () => {

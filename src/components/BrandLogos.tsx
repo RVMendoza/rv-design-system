@@ -13,6 +13,8 @@ export interface BrandLogoProps extends HTMLAttributes<HTMLElement> {
   href?: string;
   /** Optical size correction for artwork with excess transparent space. */
   logoScale?: number;
+  /** Visual prominence for the logo treatment. */
+  size?: 'default' | 'large';
 }
 
 /** A collaborator identity with an accessible text fallback and optional link. */
@@ -21,6 +23,7 @@ export function BrandLogo({
   logo,
   href,
   logoScale = 1,
+  size = 'default',
   className = '',
   title = name,
   ...props
@@ -49,6 +52,7 @@ export function BrandLogo({
       className={[
         styles['rvds-brand-logo'],
         !logo ? styles['rvds-brand-logo--text-only'] : '',
+        size === 'large' ? styles['rvds-brand-logo--large'] : '',
         className,
       ]
         .filter(Boolean)

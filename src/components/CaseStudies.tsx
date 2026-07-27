@@ -54,7 +54,14 @@ export function ProjectPreview({
       <a className={styles['rvds-project-preview__link']} href={href}>
         <span className={styles['rvds-project-preview__content']}>
           <span className={styles['rvds-project-preview__identity']}>
-            <span className={styles['rvds-project-preview__brand']}>
+            <span
+              className={styles['rvds-project-preview__brand']}
+              {...(brandLogoScale && brandLogoScale > 1
+                ? {
+                    style: { inlineSize: `${3.25 * brandLogoScale}rem` },
+                  }
+                : {})}
+            >
               <BrandLogo name={brandName} logo={brandLogo} logoScale={brandLogoScale} />
             </span>
             <span className={styles['rvds-project-preview__brand-name']}>
@@ -71,15 +78,24 @@ export function ProjectPreview({
           >
             {outcome}
           </Heading>
+          <span className={styles['rvds-project-preview__action']}>
+            {actionLabel} <span aria-hidden="true">→</span>
+          </span>
         </span>
         {image && (
-          <span className={styles['rvds-project-preview__media']}>
+          <span
+            className={[
+              styles['rvds-project-preview__media'],
+              styles[
+                Number(image.width) < Number(image.height)
+                  ? 'rvds-project-preview__media--portrait'
+                  : 'rvds-project-preview__media--landscape'
+              ],
+            ].join(' ')}
+          >
             <img className={styles['rvds-project-preview__image']} loading="lazy" {...image} />
           </span>
         )}
-        <span className={styles['rvds-project-preview__action']}>
-          {actionLabel} <span aria-hidden="true">→</span>
-        </span>
       </a>
     </article>
   );

@@ -64,6 +64,24 @@ describe('provider embeds', () => {
     );
   });
 
+  it('supports compact previews without a visible raw URL', () => {
+    const { container } = render(
+      <GenericEmbed
+        density="compact"
+        showUrl={false}
+        title="Campaign concept"
+        url="https://www.instagram.com/reel/example/"
+      />,
+    );
+
+    expect(container.querySelector('.rvds-generic-embed--compact')).not.toBeNull();
+    expect(container.querySelector('.rvds-generic-embed__url')).toBeNull();
+    expect(screen.getByRole('link', { name: 'Campaign concept' })).toHaveAttribute(
+      'href',
+      'https://www.instagram.com/reel/example/',
+    );
+  });
+
   it('rejects malformed or cross-provider post URLs', () => {
     expect(() =>
       render(<InstagramEmbed title="Wrong provider" url="https://example.com/p/DESbLWOuM95/" />),
