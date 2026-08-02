@@ -106,7 +106,8 @@
 .rvds-prose :global(figure:not([class^='rvds-']) > img) {
   block-size: auto;
   display: block;
-  inline-size: 100%;
+  inline-size: auto;
+  max-inline-size: 100%;
 }
 .rvds-prose :global(figure:not([class^='rvds-']) > figcaption) {
   color: var(--rvds-color-text-muted);
@@ -136,7 +137,8 @@
 .rvds-prose :global(.rvds-prose__figure > img) {
   block-size: auto;
   display: block;
-  inline-size: 100%;
+  inline-size: auto;
+  max-inline-size: 100%;
 }
 .rvds-prose :global(.rvds-prose__media-caption--with-credit) {
   gap: var(--rvds-space-2);
