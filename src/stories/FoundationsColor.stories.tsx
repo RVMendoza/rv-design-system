@@ -55,4 +55,4 @@ const meta = { title: 'Foundations/Color', component: ColorTokens } satisfies Me
   typeof ColorTokens
 >;
 export default meta;
-export const SemanticTokens: StoryObj<typeof meta> = {};
+export const SemanticColors: StoryObj<typeof meta> = {};

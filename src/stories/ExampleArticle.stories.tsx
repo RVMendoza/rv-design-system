@@ -54,7 +54,7 @@ function ArticleExample() {
   );
 }
 const meta = {
-  title: 'Examples/Article',
+  title: 'Examples/Article Composition',
   component: ArticleExample,
   parameters: { layout: 'padded' },
 } satisfies Meta<typeof ArticleExample>;

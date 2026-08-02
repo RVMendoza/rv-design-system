@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Prose } from '../components/Prose';
 
 const meta = {
-  title: 'Blog/Basic Text/Prose',
+  title: 'Editorial/Prose',
 } satisfies Meta;
 
 export default meta;

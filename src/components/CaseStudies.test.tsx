@@ -63,14 +63,17 @@ describe('case-study components', () => {
   });
 
   it('renders a keyboard-scrollable equal-card quote rail', () => {
-    render(
-      <QuoteRail
-        items={[{ attribution: '@reader', quote: 'This made the idea click.' }]}
-        label="Audience comments"
-      />,
-    );
+    const items = [
+      { attribution: '@reader', quote: 'This made the idea click.' },
+      { attribution: '@viewer', quote: 'I want to see what happens next.' },
+      { attribution: '@creator', quote: 'The real example made this useful.' },
+    ];
+
+    render(<QuoteRail items={items} label="Audience comments" />);
     const region = screen.getByRole('region', { name: 'Audience comments' });
     expect(region).toHaveAttribute('tabindex', '0');
+    expect(region.querySelectorAll('blockquote')).toHaveLength(items.length);
     expect(screen.getByText('@reader')).toBeVisible();
+    expect(screen.getByText('@creator')).toBeVisible();
   });
 });

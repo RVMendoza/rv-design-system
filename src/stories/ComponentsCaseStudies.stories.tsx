@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { siInstagram } from 'simple-icons/icons';
+import { siInstagram } from 'simple-icons';
 import { FeatureSteps, MetricGrid, ProjectPreview, QuoteRail } from '../components/CaseStudies';
 
 const instagramLogo = `data:image/svg+xml,${encodeURIComponent(
@@ -7,14 +7,14 @@ const instagramLogo = `data:image/svg+xml,${encodeURIComponent(
 )}`;
 
 const meta = {
-  title: 'Components/Case Studies',
+  title: 'Patterns/Case Studies',
   component: ProjectPreview,
 } satisfies Meta<typeof ProjectPreview>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Project: Story = {
+export const ProjectPreviewCard: Story = {
   args: {
     brandName: 'Instagram',
     brandLogo: {
@@ -35,7 +35,7 @@ export const Project: Story = {
   },
 };
 
-export const Results = () => (
+export const VerifiedMetrics = () => (
   <MetricGrid
     aria-label="Verified campaign results"
     items={[
@@ -45,7 +45,7 @@ export const Results = () => (
   />
 );
 
-export const StorySteps = () => (
+export const ProcessSteps = () => (
   <FeatureSteps
     items={[
       {
@@ -70,12 +70,22 @@ export const StorySteps = () => (
   />
 );
 
-export const AudienceQuotes = () => (
+export const AudienceQuoteRail = () => (
   <QuoteRail
+    autoDrift
     items={[
       { attribution: '@creator', quote: 'The real workflow made this click.' },
       { attribution: '@viewer', quote: 'I want to attend the next workshop.' },
       { attribution: '@reader', quote: 'Editing as empathy is such a useful idea.' },
+      { attribution: '@partner', quote: 'This is how you make a product belong in the story.' },
+      { attribution: '@student', quote: 'I finally understand how to structure the idea.' },
+      { attribution: '@designer', quote: 'The practical example made the lesson memorable.' },
+      { attribution: '@strategist', quote: 'Useful, specific, and still entertaining.' },
+      { attribution: '@producer', quote: 'I would watch a whole series built like this.' },
+      { attribution: '@editor', quote: 'The pacing kept every step easy to follow.' },
+      { attribution: '@marketer', quote: 'This gives the product a real reason to be there.' },
+      { attribution: '@attendee', quote: 'Please bring this workshop back next year.' },
+      { attribution: '@subscriber', quote: 'More behind-the-scenes examples like this.' },
     ]}
     label="Audience comments"
   />

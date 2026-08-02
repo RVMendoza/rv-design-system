@@ -33,6 +33,7 @@ export function BrandMarquee({
   className = '',
   onBlur,
   onFocus,
+  onLostPointerCapture,
   onPointerCancel,
   onPointerDown,
   onPointerMove,
@@ -68,6 +69,16 @@ export function BrandMarquee({
     }, MARQUEE_RESUME_DELAY);
   }, []);
 
+  const finishInteraction = useCallback(
+    (pointerId: number) => {
+      const interaction = interactionRef.current;
+      if (!interaction.active || interaction.pointerId !== pointerId) return;
+      interactionRef.current = { active: false, pointerId: -1, x: interaction.x };
+      resumeSoon();
+    },
+    [resumeSoon],
+  );
+
   useEffect(() => {
     const track = trackRef.current;
     const firstList = firstListRef.current;
@@ -91,6 +102,15 @@ export function BrandMarquee({
     updateMotion();
     motionQuery.addEventListener('change', updateMotion);
 
+    const recoverPointer = (event: globalThis.PointerEvent) => finishInteraction(event.pointerId);
+    const recoverWindowBlur = () => {
+      const interaction = interactionRef.current;
+      if (interaction.active) finishInteraction(interaction.pointerId);
+    };
+    window.addEventListener('pointerup', recoverPointer);
+    window.addEventListener('pointercancel', recoverPointer);
+    window.addEventListener('blur', recoverWindowBlur);
+
     let frame = 0;
     let previousTime = 0;
     const speed = Math.max(0, pixelsPerSecond) / 1000;
@@ -109,8 +129,11 @@ export function BrandMarquee({
       window.clearTimeout(resumeTimerRef.current);
       resizeObserver?.disconnect();
       motionQuery.removeEventListener('change', updateMotion);
+      window.removeEventListener('pointerup', recoverPointer);
+      window.removeEventListener('pointercancel', recoverPointer);
+      window.removeEventListener('blur', recoverWindowBlur);
     };
-  }, [pixelsPerSecond, writeOffset]);
+  }, [finishInteraction, pixelsPerSecond, writeOffset]);
 
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
     onPointerDown?.(event);
@@ -134,10 +157,18 @@ export function BrandMarquee({
   const finishPointer = (event: PointerEvent<HTMLDivElement>) => {
     if (event.type === 'pointercancel') onPointerCancel?.(event);
     else onPointerUp?.(event);
-    if (interactionRef.current.pointerId !== event.pointerId) return;
-    interactionRef.current.active = false;
-    event.currentTarget.releasePointerCapture?.(event.pointerId);
-    resumeSoon();
+    finishInteraction(event.pointerId);
+    try {
+      if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+        event.currentTarget.releasePointerCapture?.(event.pointerId);
+      }
+    } catch {
+      // Capture may already be gone when pointerup arrives from outside the rail.
+    }
+  };
+  const handleLostPointerCapture = (event: PointerEvent<HTMLDivElement>) => {
+    onLostPointerCapture?.(event);
+    finishInteraction(event.pointerId);
   };
   const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
     onWheel?.(event);
@@ -175,6 +206,7 @@ export function BrandMarquee({
         .join(' ')}
       onBlur={handleBlur}
       onFocus={handleFocus}
+      onLostPointerCapture={handleLostPointerCapture}
       onPointerCancel={finishPointer}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}

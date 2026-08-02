@@ -43,10 +43,10 @@
   background: var(--rvds-color-surface);
   border: var(--rvds-border-width) solid var(--rvds-color-border);
   color: var(--rvds-color-text);
+  display: none;
   font-size: var(--rvds-font-size-xs);
   inset-block-start: calc(100% + var(--rvds-space-1));
   inset-inline-start: 50%;
-  opacity: 0;
   padding: var(--rvds-space-1) var(--rvds-space-2);
   pointer-events: none;
   position: absolute;
@@ -61,7 +61,7 @@
 
 .rvds-social-links__link:hover .rvds-social-links__label,
 .rvds-social-links__link:focus-visible .rvds-social-links__label {
-  opacity: 1;
+  display: block;
 }
 
 .rvds-social-links__link:focus-visible {

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BrandLogo, BrandLogoList } from '../components/BrandLogos';
 
 const meta = {
-  title: 'Components/Brand Logos',
+  title: 'Components/Brand/Logos',
   component: BrandLogoList,
 } satisfies Meta<typeof BrandLogoList>;
 

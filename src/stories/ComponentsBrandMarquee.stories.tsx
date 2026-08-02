@@ -3,7 +3,7 @@ import { BrandLogo } from '../components/BrandLogos';
 import { BrandMarquee } from '../components/BrandMarquee';
 
 const meta = {
-  title: 'Components/Brand Marquee',
+  title: 'Components/Brand/Marquee',
   component: BrandMarquee,
   args: {
     label: 'Brands RV has worked with',
@@ -22,8 +22,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const InfiniteInteractiveRail: Story = {};
+export const DefaultInteractiveRail: Story = {};
 
-export const FasterMotion: Story = {
-  args: { pixelsPerSecond: 55 },
+DefaultInteractiveRail.parameters = {
+  docs: {
+    description: {
+      story:
+        'Automatic motion pauses for direct pointer, touch, keyboard-focus, or horizontal-wheel interaction, then recovers after release, capture loss, or window blur. Momentum is intentionally not applied.',
+    },
+  },
 };

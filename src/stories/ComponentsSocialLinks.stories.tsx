@@ -9,7 +9,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const CreatorProfiles: Story = {
+export const DefaultProfiles: Story = {
   args: {
     links: [
       { provider: 'instagram', label: 'Instagram', href: '#instagram' },

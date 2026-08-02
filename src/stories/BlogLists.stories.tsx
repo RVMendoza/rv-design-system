@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BulletedList, NumberedList } from '../components/Lists';
-const meta = { title: 'Blog/Lists', component: BulletedList } satisfies Meta<typeof BulletedList>;
+const meta = { title: 'Editorial/Lists', component: BulletedList } satisfies Meta<
+  typeof BulletedList
+>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const DashList: Story = {
@@ -25,62 +27,23 @@ export const Numbered: Story = {
     </NumberedList>
   ),
 };
-export const NestedDashes: Story = {
+export const MixedNesting: Story = {
   args: { children: null },
   render: () => (
-    <BulletedList>
+    <NumberedList>
       <li>
-        Parent dash
+        Plan the article
         <BulletedList>
+          <li>Choose the central idea</li>
           <li>
-            Child dash
-            <BulletedList>
-              <li>Grandchild dash</li>
-            </BulletedList>
+            Check supporting details
+            <NumberedList>
+              <li>Verify the source.</li>
+              <li>Keep the useful context.</li>
+            </NumberedList>
           </li>
         </BulletedList>
       </li>
-    </BulletedList>
-  ),
-};
-export const NestedNumbers: Story = {
-  args: { children: null },
-  render: () => (
-    <NumberedList>
-      <li>
-        Parent number
-        <NumberedList>
-          <li>Child number</li>
-        </NumberedList>
-      </li>
     </NumberedList>
-  ),
-};
-export const DashesInsideNumbers: Story = {
-  args: { children: null },
-  render: () => (
-    <NumberedList>
-      <li>
-        Plan the meal
-        <BulletedList>
-          <li>Choose a main dish</li>
-          <li>Check the pantry</li>
-        </BulletedList>
-      </li>
-    </NumberedList>
-  ),
-};
-export const NumbersInsideDashes: Story = {
-  args: { children: null },
-  render: () => (
-    <BulletedList>
-      <li>
-        Before publishing
-        <NumberedList>
-          <li>Read the draft</li>
-          <li>Check every link</li>
-        </NumberedList>
-      </li>
-    </BulletedList>
   ),
 };

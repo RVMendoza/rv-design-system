@@ -42,22 +42,6 @@ export const FullWidthActionLink: Story = {
     </div>
   ),
 };
-export const PrimaryLinkButtonStates: Story = {
-  args: { children: 'Primary link button' },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Hover for the high-contrast bright-verdigris-on-black treatment, Tab to inspect the sunflower-gold focus ring, and press to inspect the active state.',
-      },
-    },
-  },
-  render: () => (
-    <Link href="#primary-link-example" variant="primary">
-      Primary link button
-    </Link>
-  ),
-};
 export const HoverAndKeyboardStates: Story = {
   args: { children: 'Interactive action' },
   parameters: {

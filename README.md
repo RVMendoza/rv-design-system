@@ -42,13 +42,14 @@ Supporting media uses orientation-aware mobile frames so portrait and landscape
 assets remain legible without cropping or becoming the primary identity cue.
 The balanced row layout begins at 32rem so intermediate widths do not develop a
 large dead zone between copy and artwork.
-`MetricGrid`
-renders verified figures as a semantic definition list. `FeatureSteps` presents
-an ordered brief or process summary with RVDS icons, and `QuoteRail` provides
-equal-size, keyboard-scrollable social-proof cards with optional slow movement
-that stops for interaction and reduced-motion preferences. Keep campaign
-content, editorial sequencing, and page-level section composition in the
-consuming site.
+`MetricGrid` renders verified figures as a semantic definition list. It uses a
+single, well-spaced column at phone widths and two columns when enough space is
+available. `FeatureSteps` presents an ordered brief or process summary with
+RVDS icons, and `QuoteRail` provides equal-size, keyboard-scrollable
+social-proof cards with a visible horizontal scrollbar and a partial next card
+to make the interaction clear. Optional slow movement stops for interaction and
+reduced-motion preferences. Keep campaign content, editorial sequencing, and
+page-level section composition in the consuming site.
 
 For an Astro Content Collections example, see the [Astro MDX usage guide](docs/astro-mdx-usage.md). Markdown parsing and component mapping belong to the consuming website. Wrap generated article output in `Prose` to apply the RVDS typography and media treatment without rewriting ordinary Markdown as JSX.
 
@@ -66,6 +67,8 @@ pnpm check
 ```
 
 Storybook runs at [http://localhost:6006](http://localhost:6006). Stop it with `Control+C`. Rebuild the package with `pnpm build` whenever the consuming Astro website needs new RVDS source changes.
+
+See the [Storybook navigation and review guide](docs/storybook.md) for the category model and responsive, keyboard, reduced-motion, and accessibility review checklist.
 
 ## Fonts
 

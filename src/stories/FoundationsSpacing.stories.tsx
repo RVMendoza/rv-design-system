@@ -25,4 +25,4 @@ const meta = { title: 'Foundations/Spacing', component: SpacingTokens } satisfie
   typeof SpacingTokens
 >;
 export default meta;
-export const Scale: StoryObj<typeof meta> = {};
+export const SpacingScale: StoryObj<typeof meta> = {};
