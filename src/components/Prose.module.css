@@ -98,6 +98,10 @@
 .rvds-prose :global(:where(img, video, iframe)) {
   max-inline-size: 100%;
 }
+.rvds-prose :global(img) {
+  block-size: auto;
+  inline-size: auto;
+}
 .rvds-prose :global(figure:not([class^='rvds-'])) {
   margin-block: var(--rvds-space-6);
   margin-inline: 0;
