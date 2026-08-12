@@ -68,3 +68,24 @@
   box-shadow: var(--rvds-focus-ring);
   outline: none;
 }
+
+.rvds-social-links--labels .rvds-social-links__link {
+  gap: var(--rvds-space-2);
+  justify-content: flex-start;
+  padding-inline: var(--rvds-space-2);
+}
+
+.rvds-social-links--labels .rvds-social-links__label {
+  background: transparent;
+  border: 0;
+  color: currentColor;
+  display: inline;
+  font-size: var(--rvds-font-size-sm);
+  inset: auto;
+  padding: 0;
+  pointer-events: auto;
+  position: static;
+  transform: none;
+  white-space: normal;
+  z-index: auto;
+}

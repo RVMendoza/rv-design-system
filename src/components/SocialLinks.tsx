@@ -5,6 +5,7 @@ import {
   siInstagram,
   siMastodon,
   siPinterest,
+  siSnapchat,
   siSubstack,
   siThreads,
   siTiktok,
@@ -19,6 +20,7 @@ export type SocialProvider =
   | 'tiktok'
   | 'youtube'
   | 'linkedin'
+  | 'snapchat'
   | 'threads'
   | 'substack'
   | 'facebook'
@@ -32,12 +34,16 @@ export type SocialProvider =
 export interface SocialLinkItem {
   provider: SocialProvider;
   label: string;
+  /** Accessible name when the visible label is intentionally abbreviated. */
+  ariaLabel?: string;
   href: string;
 }
 
 export interface SocialLinksProps extends Omit<HTMLAttributes<HTMLUListElement>, 'children'> {
   links: SocialLinkItem[];
   label?: string;
+  /** Show each profile label beside its icon instead of only on hover and focus. */
+  showLabels?: boolean;
 }
 
 function SocialIcon({ provider }: { provider: SocialProvider }) {
@@ -58,6 +64,7 @@ function SocialIcon({ provider }: { provider: SocialProvider }) {
     x: siX.path,
     bluesky: siBluesky.path,
     pinterest: siPinterest.path,
+    snapchat: siSnapchat.path,
     twitch: siTwitch.path,
     mastodon: siMastodon.path,
     linkedin:
@@ -85,19 +92,26 @@ function SocialIcon({ provider }: { provider: SocialProvider }) {
 export function SocialLinks({
   links,
   label = 'Social profiles',
+  showLabels = false,
   className = '',
   ...props
 }: SocialLinksProps) {
   return (
     <ul
       aria-label={label}
-      className={[styles['rvds-social-links'], className].filter(Boolean).join(' ')}
+      className={[
+        styles['rvds-social-links'],
+        showLabels ? styles['rvds-social-links--labels'] : '',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
       {...props}
     >
       {links.map((link) => (
         <li className={styles['rvds-social-links__item']} key={`${link.provider}-${link.href}`}>
           <a
-            aria-label={link.label}
+            aria-label={link.ariaLabel ?? link.label}
             className={styles['rvds-social-links__link']}
             data-provider={link.provider}
             href={link.href}

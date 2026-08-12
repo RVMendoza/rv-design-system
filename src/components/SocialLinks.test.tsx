@@ -39,4 +39,45 @@ describe('SocialLinks', () => {
       'generic',
     );
   });
+
+  it('shows a visible label and supports the Snapchat brand icon when requested', () => {
+    const { container } = render(
+      <SocialLinks
+        showLabels
+        links={[
+          {
+            provider: 'snapchat',
+            label: 'Snapchat: 10K followers',
+            href: 'https://snapchat.com/add/example',
+          },
+        ]}
+      />,
+    );
+
+    expect(screen.getByRole('link', { name: 'Snapchat: 10K followers' })).toHaveAttribute(
+      'data-provider',
+      'snapchat',
+    );
+    expect(screen.getByText('Snapchat: 10K followers')).toBeVisible();
+    expect(container.querySelector('.rvds-social-links--labels')).not.toBeNull();
+  });
+
+  it('uses an explicit accessible name when a compact visible label is supplied', () => {
+    render(
+      <SocialLinks
+        showLabels
+        links={[
+          {
+            provider: 'instagram',
+            label: 'Instagram · 246.4K',
+            ariaLabel: 'Instagram: 246.4K followers',
+            href: 'https://instagram.com/example',
+          },
+        ]}
+      />,
+    );
+
+    expect(screen.getByRole('link', { name: 'Instagram: 246.4K followers' })).toBeVisible();
+    expect(screen.getByText('Instagram · 246.4K')).toBeVisible();
+  });
 });
