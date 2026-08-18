@@ -41,6 +41,7 @@ export const RowCollection: Story = {
           <li>
             <ArticlePreview
               href="#second"
+              markerIcon="gauge"
               title="A deliberately long article title that wraps without colliding with its summary or navigation affordance"
               description="This state demonstrates resilient typography at narrow widths and high zoom."
             />

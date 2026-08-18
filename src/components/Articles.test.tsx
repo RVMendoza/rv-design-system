@@ -48,26 +48,31 @@ describe('article components', () => {
     );
   });
 
-  it('renders a stable text-only modifier without an empty image', () => {
+  it('renders a decorative icon in the media area when an image is absent', () => {
     const { container } = render(
       <ArticlePreview href="/writing/text-only/" title="A text-only article" />,
     );
 
     expect(container.querySelector('.rvds-article-preview--text-only')).not.toBeNull();
     expect(container.querySelector('img')).toBeNull();
-    expect(container.querySelector('.rvds-article-preview__marker')).not.toBeNull();
+    expect(container.querySelector('.rvds-article-preview__media--icon')).toHaveAttribute(
+      'aria-hidden',
+      'true',
+    );
+    expect(container.querySelector('.rvds-article-preview__media--icon svg')).not.toBeNull();
+    expect(container.querySelector('.rvds-article-preview__marker')).toBeNull();
   });
 
   it('renders named decorative markers through the shared icon system', () => {
     const { container, rerender } = render(
       <ArticlePreview href="/writing/icons/" markerIcon="camera" title="An icon article" />,
     );
-    expect(container.querySelector('.rvds-article-preview__marker svg')).not.toBeNull();
+    expect(container.querySelector('.rvds-article-preview__media--icon svg')).not.toBeNull();
 
     rerender(
       <ArticlePreview href="/writing/icons/" markerIcon="not-an-icon" title="An icon article" />,
     );
-    expect(container.querySelectorAll('.rvds-article-preview__marker svg')).toHaveLength(1);
+    expect(container.querySelectorAll('.rvds-article-preview__media--icon svg')).toHaveLength(1);
   });
 
   it('renders an ordered grid with an optional eyebrow', () => {

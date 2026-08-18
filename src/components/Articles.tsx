@@ -82,21 +82,33 @@ export function ArticlePreview({
       {...props}
     >
       <a className={styles['rvds-article-preview__link']} href={href}>
-        {image && (
-          <span className={styles['rvds-article-preview__media']}>
+        <span
+          className={[
+            styles['rvds-article-preview__media'],
+            !image ? styles['rvds-article-preview__media--icon'] : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+          {...(!image ? { 'aria-hidden': true } : {})}
+        >
+          {image ? (
             <img className={styles['rvds-article-preview__image']} loading="lazy" {...image} />
-          </span>
-        )}
-        <span className={styles['rvds-article-preview__content']}>
-          <span
-            className={[
-              styles['rvds-article-preview__marker'],
-              styles['rvds-article-preview__marker--icon'],
-            ].join(' ')}
-            aria-hidden="true"
-          >
+          ) : (
             <Icon name={markerIcon} />
-          </span>
+          )}
+        </span>
+        <span className={styles['rvds-article-preview__content']}>
+          {image && (
+            <span
+              className={[
+                styles['rvds-article-preview__marker'],
+                styles['rvds-article-preview__marker--icon'],
+              ].join(' ')}
+              aria-hidden="true"
+            >
+              <Icon name={markerIcon} />
+            </span>
+          )}
           {eyebrow && <span className={styles['rvds-article-preview__eyebrow']}>{eyebrow}</span>}
           <Heading className={styles['rvds-article-preview__title']} level={headingLevel} size={3}>
             {title}
