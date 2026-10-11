@@ -219,6 +219,7 @@
 }
 
 .rvds-quote-rail {
+  cursor: grab;
   display: flex;
   gap: var(--rvds-space-4);
   overflow-x: auto;
@@ -226,6 +227,11 @@
   padding-block-end: var(--rvds-space-3);
   scrollbar-color: var(--rvds-color-accent) var(--rvds-color-surface);
   scrollbar-width: thin;
+}
+
+.rvds-quote-rail[data-dragging] {
+  cursor: grabbing;
+  user-select: none;
 }
 
 .rvds-quote-rail::-webkit-scrollbar {

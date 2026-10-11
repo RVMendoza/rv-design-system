@@ -1,9 +1,10 @@
 import {
+  useCallback,
   useEffect,
   useRef,
-  useState,
   type HTMLAttributes,
   type ImgHTMLAttributes,
+  type PointerEvent,
   type ReactNode,
 } from 'react';
 import { BrandLogo, type BrandLogoProps } from './BrandLogos';
@@ -184,7 +185,31 @@ export function QuoteRail({
   ...props
 }: QuoteRailProps) {
   const railRef = useRef<HTMLDivElement>(null);
-  const [interacting, setInteracting] = useState(false);
+  const interactionRef = useRef({ active: false, pointerId: -1, x: 0 });
+  const resumeTimerRef = useRef<number | undefined>(undefined);
+
+  const pause = useCallback(() => {
+    window.clearTimeout(resumeTimerRef.current);
+    railRef.current?.setAttribute('data-interacting', '');
+  }, []);
+
+  const resumeSoon = useCallback(() => {
+    window.clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = window.setTimeout(() => {
+      railRef.current?.removeAttribute('data-interacting');
+    }, 1200);
+  }, []);
+
+  const finishInteraction = useCallback(
+    (pointerId: number) => {
+      const interaction = interactionRef.current;
+      if (!interaction.active || interaction.pointerId !== pointerId) return;
+      interactionRef.current = { active: false, pointerId: -1, x: interaction.x };
+      railRef.current?.removeAttribute('data-dragging');
+      resumeSoon();
+    },
+    [resumeSoon],
+  );
 
   useEffect(() => {
     if (!autoDrift) return;
@@ -192,37 +217,82 @@ export function QuoteRail({
     if (!rail) return;
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let motionReduced = reducedMotion.matches;
     let frame = 0;
     let previousTime = 0;
 
     const drift = (time: number) => {
-      if (!motionReduced && !interacting && time - previousTime >= 32) {
-        rail.scrollLeft += 0.5;
-        previousTime = time;
+      const elapsed = previousTime === 0 ? 0 : Math.min(time - previousTime, 50);
+      previousTime = time;
+      if (!rail.hasAttribute('data-interacting')) {
+        const pixelsPerMillisecond = reducedMotion.matches ? 0.004 : 0.016;
+        rail.scrollLeft += elapsed * pixelsPerMillisecond;
         if (rail.scrollLeft >= rail.scrollWidth - rail.clientWidth - 1) rail.scrollLeft = 0;
       }
       frame = window.requestAnimationFrame(drift);
     };
-    const handleMotion = (event: MediaQueryListEvent) => {
-      motionReduced = event.matches;
+    const recoverPointer = (event: globalThis.PointerEvent) => finishInteraction(event.pointerId);
+    const recoverWindowBlur = () => {
+      const interaction = interactionRef.current;
+      if (interaction.active) finishInteraction(interaction.pointerId);
     };
 
-    reducedMotion.addEventListener('change', handleMotion);
+    window.addEventListener('pointerup', recoverPointer);
+    window.addEventListener('pointercancel', recoverPointer);
+    window.addEventListener('blur', recoverWindowBlur);
     frame = window.requestAnimationFrame(drift);
     return () => {
-      reducedMotion.removeEventListener('change', handleMotion);
+      window.clearTimeout(resumeTimerRef.current);
+      window.removeEventListener('pointerup', recoverPointer);
+      window.removeEventListener('pointercancel', recoverPointer);
+      window.removeEventListener('blur', recoverWindowBlur);
       window.cancelAnimationFrame(frame);
     };
-  }, [autoDrift, interacting]);
+  }, [autoDrift, finishInteraction]);
+
+  const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    if (event.button !== 0) return;
+    interactionRef.current = { active: true, pointerId: event.pointerId, x: event.clientX };
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+    event.currentTarget.setAttribute('data-dragging', '');
+    pause();
+  };
+  const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    const interaction = interactionRef.current;
+    if (!interaction.active || interaction.pointerId !== event.pointerId) return;
+    event.currentTarget.scrollLeft -= event.clientX - interaction.x;
+    interaction.x = event.clientX;
+  };
+  const finishPointer = (event: PointerEvent<HTMLDivElement>) => {
+    finishInteraction(event.pointerId);
+    try {
+      if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+        event.currentTarget.releasePointerCapture?.(event.pointerId);
+      }
+    } catch {
+      // Pointer capture may already be gone after release outside the rail.
+    }
+  };
 
   return (
     <div
       className={[styles['rvds-quote-rail'], className].filter(Boolean).join(' ')}
-      onBlur={() => setInteracting(false)}
-      onFocus={() => setInteracting(true)}
-      onPointerEnter={() => setInteracting(true)}
-      onPointerLeave={() => setInteracting(false)}
+      onBlur={resumeSoon}
+      onDragStart={(event) => event.preventDefault()}
+      onFocus={pause}
+      onKeyDown={(event) => {
+        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+        pause();
+        resumeSoon();
+      }}
+      onLostPointerCapture={(event) => finishInteraction(event.pointerId)}
+      onPointerCancel={finishPointer}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={finishPointer}
+      onWheel={() => {
+        pause();
+        resumeSoon();
+      }}
       ref={railRef}
       role="region"
       aria-label={label}

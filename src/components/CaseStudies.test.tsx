@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import { FeatureSteps, MetricGrid, ProjectPreview, QuoteRail } from './CaseStudies';
 
 describe('case-study components', () => {
@@ -75,5 +75,42 @@ describe('case-study components', () => {
     expect(region.querySelectorAll('blockquote')).toHaveLength(items.length);
     expect(screen.getByText('@reader')).toBeVisible();
     expect(screen.getByText('@creator')).toBeVisible();
+  });
+
+  it('drags in either direction without starting a native drag and resumes automatic drift', () => {
+    vi.useFakeTimers();
+    vi.stubGlobal(
+      'matchMedia',
+      vi.fn(() => ({ matches: false })),
+    );
+    vi.stubGlobal(
+      'requestAnimationFrame',
+      vi.fn(() => 1),
+    );
+    vi.stubGlobal('cancelAnimationFrame', vi.fn());
+    const { container } = render(
+      <QuoteRail
+        autoDrift
+        items={[{ attribution: '@reader', quote: 'This made the idea click.' }]}
+        label="Audience comments"
+      />,
+    );
+    const rail = container.querySelector<HTMLElement>('.rvds-quote-rail')!;
+    rail.setPointerCapture = vi.fn();
+    rail.hasPointerCapture = vi.fn(() => false);
+    rail.scrollLeft = 100;
+
+    fireEvent.pointerDown(rail, { button: 0, clientX: 100, pointerId: 1 });
+    fireEvent.pointerMove(rail, { clientX: 40, pointerId: 1 });
+    expect(rail.scrollLeft).toBe(160);
+    expect(rail).toHaveAttribute('data-dragging');
+    expect(fireEvent.dragStart(rail)).toBe(false);
+
+    fireEvent.pointerUp(window, { pointerId: 1 });
+    expect(rail).not.toHaveAttribute('data-dragging');
+    vi.advanceTimersByTime(1200);
+    expect(rail).not.toHaveAttribute('data-interacting');
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
   });
 });
